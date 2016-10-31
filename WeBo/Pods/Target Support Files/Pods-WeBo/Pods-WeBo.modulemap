@@ -1,0 +1,6 @@
+framework module Pods_WeBo {
+  umbrella header "Pods-WeBo-umbrella.h"
+
+  export *
+  module * { export * }
+}
