@@ -70,9 +70,12 @@ extension OAuthViewController {
     @objc fileprivate func fileItemClick() {
     
         DLog("填充账号")
-        //书写 JS 代码: 
-        let jsCode = "document.getElementById('userId').value='1606020376@qq.com';document.getElementById('passwd').value='haomage';"
+        // 1.书写 JS 代码:
+        let jsCode = "document.getElementById('userId').value='15515612997';document.getElementById('passwd').value='15515612997abc';"
+        
+        // 2.执行 js代码
         webView.stringByEvaluatingJavaScript(from: jsCode)
+
     }
     
     
@@ -120,7 +123,8 @@ extension OAuthViewController : UIWebViewDelegate {
         DLog("URLString=\(urlString)")
         DLog("code=\(code)")
         
-        
+        // 5. 请求 accessToken
+        loadAccessToken(code!)
         return false
     }
 }
@@ -130,6 +134,21 @@ extension OAuthViewController {
 
     fileprivate func loadAccessToken(_ code : String) {
     
+        NetworkTools.shareInstance.loadAccessToken(code: code) { (result, error) -> (Void) in
+            // 1.错误校验
+            if error != nil {
+                DLog(error)
+                return
+            }
+            // 2.拿到结果
+            guard result != nil else {
+            
+                return
+            }
+            DLog(result)
+            // 3.将字典转成模型对象
+            let account = UserAccount(dict: result!)
+        }
     }
 }
 

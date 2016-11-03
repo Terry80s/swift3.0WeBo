@@ -9,6 +9,7 @@ target 'WeBo' do
 pod 'SVProgressHUD'
 pod 'FDFullscreenPopGesture'
 pod 'MJRefresh'
-
+pod 'SnapKit', '~> 3.0.2'
+pod 'AFNetworking', '~> 3.1.0'
 
 end

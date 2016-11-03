@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181F38061DCB1A8100A82E5C /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F38051DCB1A8100A82E5C /* NetworkTools.swift */; };
+		181F38081DCB37B600A82E5C /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F38071DCB37B600A82E5C /* UserAccount.swift */; };
 		185379721DC6EF9800236B7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185379711DC6EF9800236B7A /* AppDelegate.swift */; };
 		185379791DC6EF9800236B7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 185379781DC6EF9800236B7A /* Assets.xcassets */; };
 		185379AE1DC6EFB400236B7A /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185379861DC6EFB400236B7A /* AddViewController.swift */; };
@@ -34,6 +36,8 @@
 
 /* Begin PBXFileReference section */
 		02A6CA9550F6FA90D120A4A3 /* Pods-WeBo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeBo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeBo/Pods-WeBo.debug.xcconfig"; sourceTree = "<group>"; };
+		181F38051DCB1A8100A82E5C /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
+		181F38071DCB37B600A82E5C /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		1853796E1DC6EF9800236B7A /* WeBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		185379711DC6EF9800236B7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		185379781DC6EF9800236B7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -74,6 +78,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		181F38011DCB1A5F00A82E5C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		181F38021DCB1A5F00A82E5C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				181F38051DCB1A8100A82E5C /* NetworkTools.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		181F38031DCB1A5F00A82E5C /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		181F38041DCB1A5F00A82E5C /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
 		185379651DC6EF9800236B7A = {
 			isa = PBXGroup;
 			children = (
@@ -106,13 +139,13 @@
 		185379831DC6EFB400236B7A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				185379841DC6EFB400236B7A /* Controller */,
-				1853799A1DC6EFB400236B7A /* Model */,
-				1853799B1DC6EFB400236B7A /* Network */,
-				1853799C1DC6EFB400236B7A /* Resource */,
-				1853799D1DC6EFB400236B7A /* UIKit */,
-				185379A41DC6EFB400236B7A /* Vender */,
+				181F38011DCB1A5F00A82E5C /* Model */,
 				185379A51DC6EFB400236B7A /* View */,
+				185379841DC6EFB400236B7A /* Controller */,
+				181F38021DCB1A5F00A82E5C /* Network */,
+				181F38031DCB1A5F00A82E5C /* Other */,
+				181F38041DCB1A5F00A82E5C /* Vendor */,
+				1853799D1DC6EFB400236B7A /* UIKit */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -181,6 +214,7 @@
 			children = (
 				185379941DC6EFB400236B7A /* OAuthViewController.swift */,
 				185379951DC6EFB400236B7A /* OAuthViewController.xib */,
+				181F38071DCB37B600A82E5C /* UserAccount.swift */,
 			);
 			path = OAuth;
 			sourceTree = "<group>";
@@ -201,27 +235,6 @@
 			path = "Profile(我的)";
 			sourceTree = "<group>";
 		};
-		1853799A1DC6EFB400236B7A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		1853799B1DC6EFB400236B7A /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
-		1853799C1DC6EFB400236B7A /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resource;
-			sourceTree = "<group>";
-		};
 		1853799D1DC6EFB400236B7A /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,13 +253,6 @@
 				185379A01DC6EFB400236B7A /* UIButton-Extension.swift */,
 			);
 			path = Category;
-			sourceTree = "<group>";
-		};
-		185379A41DC6EFB400236B7A /* Vender */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Vender;
 			sourceTree = "<group>";
 		};
 		185379A51DC6EFB400236B7A /* View */ = {
@@ -358,6 +364,7 @@
 				TargetAttributes = {
 					1853796D1DC6EF9800236B7A = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -451,7 +458,9 @@
 				185379BC1DC6EFB400236B7A /* UIButton-Extension.swift in Sources */,
 				185379B41DC6EFB400236B7A /* YJPresentationController.swift in Sources */,
 				185379AF1DC6EFB400236B7A /* DiscoverViewController.swift in Sources */,
+				181F38081DCB37B600A82E5C /* UserAccount.swift in Sources */,
 				185379BB1DC6EFB400236B7A /* UIBarItem-Extension.swift in Sources */,
+				181F38061DCB1A8100A82E5C /* NetworkTools.swift in Sources */,
 				185379AE1DC6EFB400236B7A /* AddViewController.swift in Sources */,
 				185379B71DC6EFB400236B7A /* OAuthViewController.swift in Sources */,
 				185379721DC6EF9800236B7A /* AppDelegate.swift in Sources */,
