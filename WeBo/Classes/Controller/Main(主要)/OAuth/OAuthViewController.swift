@@ -148,6 +148,52 @@ extension OAuthViewController {
             DLog(result)
             // 3.将字典转成模型对象
             let account = UserAccount(dict: result!)
+            
+            // 4.请求用户信息
+            //在闭包中调用外部的方法需要加 self
+            self.loadUserInfo(account: account)
+        }
+    }
+   
+    fileprivate func loadUserInfo(account: UserAccount) {
+        
+        guard let accessToken = account.access_token  else {
+            return;
+            
+        }
+        
+        guard let uid = account.uid else {
+            return
+        }
+        NetworkTools.shareInstance.loadUserInfo(access_token: accessToken, uid: uid) { (result, error) in
+            // 1.错误校验
+            if error != nil  {
+            
+                DLog("请求用户信息出错\(error)")
+                return
+            }
+            
+            // 2.用户信息存在进行解析,不存在 return
+            guard let userInfoDict = result else {
+            
+                return
+            }
+            
+            // 3.从字典中取出昵称和用户头像地址
+            account.screen_name = userInfoDict["screen_name"] as? String
+            account.avatar_large = userInfoDict["avatar_large"] as? String
+            
+            // 4.将 account 对象保存
+            
+            NSKeyedArchiver.archiveRootObject(account, toFile: UserAccountViewModel.shareIntance.accountPath)
+            
+            // 5.将account对象设置到单例对象中
+            UserAccountViewModel.shareIntance.account = account
+            
+            // 6.退出当前控制器
+            self.dismiss(animated: false, completion: { () -> Void in
+                UIApplication.shared.keyWindow?.rootViewController = WelcomeViewController()
+            })
         }
     }
 }

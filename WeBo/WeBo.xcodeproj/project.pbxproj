@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1801DED31DCB870300F2EE1E /* UserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801DED21DCB870300F2EE1E /* UserAccountViewModel.swift */; };
+		1801DED71DCB8BC500F2EE1E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801DED51DCB8BC500F2EE1E /* WelcomeViewController.swift */; };
+		1801DED81DCB8BC500F2EE1E /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1801DED61DCB8BC500F2EE1E /* WelcomeViewController.xib */; };
 		181F38061DCB1A8100A82E5C /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F38051DCB1A8100A82E5C /* NetworkTools.swift */; };
 		181F38081DCB37B600A82E5C /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F38071DCB37B600A82E5C /* UserAccount.swift */; };
 		185379721DC6EF9800236B7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185379711DC6EF9800236B7A /* AppDelegate.swift */; };
@@ -36,6 +39,9 @@
 
 /* Begin PBXFileReference section */
 		02A6CA9550F6FA90D120A4A3 /* Pods-WeBo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeBo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeBo/Pods-WeBo.debug.xcconfig"; sourceTree = "<group>"; };
+		1801DED21DCB870300F2EE1E /* UserAccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccountViewModel.swift; sourceTree = "<group>"; };
+		1801DED51DCB8BC500F2EE1E /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		1801DED61DCB8BC500F2EE1E /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		181F38051DCB1A8100A82E5C /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		181F38071DCB37B600A82E5C /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		1853796E1DC6EF9800236B7A /* WeBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +84,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1801DED41DCB8BA800F2EE1E /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				1801DED51DCB8BC500F2EE1E /* WelcomeViewController.swift */,
+				1801DED61DCB8BC500F2EE1E /* WelcomeViewController.xib */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
 		181F38011DCB1A5F00A82E5C /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +168,7 @@
 		185379841DC6EFB400236B7A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1801DED41DCB8BA800F2EE1E /* Welcome */,
 				185379851DC6EFB400236B7A /* Add(添加) */,
 				185379871DC6EFB400236B7A /* Discover(发现) */,
 				185379891DC6EFB400236B7A /* Home(首页) */,
@@ -215,6 +231,7 @@
 				185379941DC6EFB400236B7A /* OAuthViewController.swift */,
 				185379951DC6EFB400236B7A /* OAuthViewController.xib */,
 				181F38071DCB37B600A82E5C /* UserAccount.swift */,
+				1801DED21DCB870300F2EE1E /* UserAccountViewModel.swift */,
 			);
 			path = OAuth;
 			sourceTree = "<group>";
@@ -392,6 +409,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1801DED81DCB8BC500F2EE1E /* WelcomeViewController.xib in Resources */,
 				185379B81DC6EFB400236B7A /* OAuthViewController.xib in Resources */,
 				185379C11DC6EFB400236B7A /* VisitorView.xib in Resources */,
 				185379791DC6EF9800236B7A /* Assets.xcassets in Resources */,
@@ -461,11 +479,13 @@
 				181F38081DCB37B600A82E5C /* UserAccount.swift in Sources */,
 				185379BB1DC6EFB400236B7A /* UIBarItem-Extension.swift in Sources */,
 				181F38061DCB1A8100A82E5C /* NetworkTools.swift in Sources */,
+				1801DED31DCB870300F2EE1E /* UserAccountViewModel.swift in Sources */,
 				185379AE1DC6EFB400236B7A /* AddViewController.swift in Sources */,
 				185379B71DC6EFB400236B7A /* OAuthViewController.swift in Sources */,
 				185379721DC6EF9800236B7A /* AppDelegate.swift in Sources */,
 				185379BA1DC6EFB400236B7A /* ProfileViewController.swift in Sources */,
 				185379B51DC6EFB400236B7A /* BaseViewController.swift in Sources */,
+				1801DED71DCB8BC500F2EE1E /* WelcomeViewController.swift in Sources */,
 				185379BF1DC6EFB400236B7A /* TitleButton.swift in Sources */,
 				185379B91DC6EFB400236B7A /* MessageViewController.swift in Sources */,
 				185379BE1DC6EFB400236B7A /* DLog.swift in Sources */,

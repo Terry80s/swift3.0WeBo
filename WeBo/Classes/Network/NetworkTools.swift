@@ -72,3 +72,18 @@ extension NetworkTools {
         }
     }
 }
+
+//MARK: - 请求用户信息
+extension NetworkTools {
+
+    func loadUserInfo(access_token: String, uid: String, finished: @escaping (_ result: [String: Any]?, _ error:Error?) -> ()) {
+        
+        let urlString = "https://api.weibo.com/2/users/show.json"
+        
+        let parameters = ["access_token": access_token, "uid": uid]
+        
+        requestData(methodType: .get, urlString: urlString, parameters: parameters) { (result, error) -> (Void) in
+            finished(result as? [String : Any], error)
+        }
+    }
+}
