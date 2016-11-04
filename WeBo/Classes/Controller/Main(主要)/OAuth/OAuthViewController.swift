@@ -96,7 +96,7 @@ extension OAuthViewController : UIWebViewDelegate {
     
     // webView网页加载失败
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
-        SVProgressHUD.showError(withStatus: "加载错误")
+//        SVProgressHUD.showError(withStatus: "加载错误")
     }
 
     // 当准备加载某一个页面时,会执行该方法
@@ -194,6 +194,8 @@ extension OAuthViewController {
             self.dismiss(animated: false, completion: { () -> Void in
                 UIApplication.shared.keyWindow?.rootViewController = WelcomeViewController()
             })
+            
+            
         }
     }
 }

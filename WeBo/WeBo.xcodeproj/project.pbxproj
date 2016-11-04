@@ -8,10 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		1801DED31DCB870300F2EE1E /* UserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801DED21DCB870300F2EE1E /* UserAccountViewModel.swift */; };
-		1801DED71DCB8BC500F2EE1E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801DED51DCB8BC500F2EE1E /* WelcomeViewController.swift */; };
-		1801DED81DCB8BC500F2EE1E /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1801DED61DCB8BC500F2EE1E /* WelcomeViewController.xib */; };
 		181F38061DCB1A8100A82E5C /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F38051DCB1A8100A82E5C /* NetworkTools.swift */; };
 		181F38081DCB37B600A82E5C /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F38071DCB37B600A82E5C /* UserAccount.swift */; };
+		1852E5E21DCC258A00E17205 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1852E5E01DCC258A00E17205 /* WelcomeViewController.swift */; };
+		1852E5E31DCC258A00E17205 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1852E5E11DCC258A00E17205 /* WelcomeViewController.xib */; };
+		1852E5E61DCC505A00E17205 /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1852E5E51DCC505A00E17205 /* StatusModel.swift */; };
+		1852E5EC1DCC6D1B00E17205 /* NSDate-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1852E5EB1DCC6D1B00E17205 /* NSDate-Extension.swift */; };
+		1852E5EE1DCC71EE00E17205 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1852E5ED1DCC71EE00E17205 /* UserModel.swift */; };
+		1852E5F61DCC72B300E17205 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1852E5F21DCC72B300E17205 /* HomeTableViewCell.swift */; };
+		1852E5F71DCC72B300E17205 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1852E5F31DCC72B300E17205 /* HomeTableViewCell.xib */; };
+		1852E5F91DCC7F0000E17205 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1852E5F81DCC7F0000E17205 /* StatusViewModel.swift */; };
 		185379721DC6EF9800236B7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185379711DC6EF9800236B7A /* AppDelegate.swift */; };
 		185379791DC6EF9800236B7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 185379781DC6EF9800236B7A /* Assets.xcassets */; };
 		185379AE1DC6EFB400236B7A /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185379861DC6EFB400236B7A /* AddViewController.swift */; };
@@ -40,10 +46,17 @@
 /* Begin PBXFileReference section */
 		02A6CA9550F6FA90D120A4A3 /* Pods-WeBo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeBo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeBo/Pods-WeBo.debug.xcconfig"; sourceTree = "<group>"; };
 		1801DED21DCB870300F2EE1E /* UserAccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccountViewModel.swift; sourceTree = "<group>"; };
-		1801DED51DCB8BC500F2EE1E /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		1801DED61DCB8BC500F2EE1E /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		181F38051DCB1A8100A82E5C /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		181F38071DCB37B600A82E5C /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
+		1852E5DE1DCC1D3500E17205 /* OCContainerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCContainerHeader.h; sourceTree = "<group>"; };
+		1852E5E01DCC258A00E17205 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		1852E5E11DCC258A00E17205 /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
+		1852E5E51DCC505A00E17205 /* StatusModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusModel.swift; sourceTree = "<group>"; };
+		1852E5EB1DCC6D1B00E17205 /* NSDate-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate-Extension.swift"; sourceTree = "<group>"; };
+		1852E5ED1DCC71EE00E17205 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		1852E5F21DCC72B300E17205 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		1852E5F31DCC72B300E17205 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
+		1852E5F81DCC7F0000E17205 /* StatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
 		1853796E1DC6EF9800236B7A /* WeBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		185379711DC6EF9800236B7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		185379781DC6EF9800236B7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -84,18 +97,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1801DED41DCB8BA800F2EE1E /* Welcome */ = {
-			isa = PBXGroup;
-			children = (
-				1801DED51DCB8BC500F2EE1E /* WelcomeViewController.swift */,
-				1801DED61DCB8BC500F2EE1E /* WelcomeViewController.xib */,
-			);
-			path = Welcome;
-			sourceTree = "<group>";
-		};
 		181F38011DCB1A5F00A82E5C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1852E5E41DCC504500E17205 /* Home */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -111,6 +116,7 @@
 		181F38031DCB1A5F00A82E5C /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				1852E5DE1DCC1D3500E17205 /* OCContainerHeader.h */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -120,6 +126,62 @@
 			children = (
 			);
 			path = Vendor;
+			sourceTree = "<group>";
+		};
+		1852E5DF1DCC258A00E17205 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				1852E5E01DCC258A00E17205 /* WelcomeViewController.swift */,
+				1852E5E11DCC258A00E17205 /* WelcomeViewController.xib */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		1852E5E41DCC504500E17205 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1852E5E51DCC505A00E17205 /* StatusModel.swift */,
+				1852E5ED1DCC71EE00E17205 /* UserModel.swift */,
+				1852E5F81DCC7F0000E17205 /* StatusViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		1852E5EF1DCC72B300E17205 /* AddView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AddView;
+			sourceTree = "<group>";
+		};
+		1852E5F01DCC72B300E17205 /* DiscoverView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DiscoverView;
+			sourceTree = "<group>";
+		};
+		1852E5F11DCC72B300E17205 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				1852E5F21DCC72B300E17205 /* HomeTableViewCell.swift */,
+				1852E5F31DCC72B300E17205 /* HomeTableViewCell.xib */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		1852E5F41DCC72B300E17205 /* MessageView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MessageView;
+			sourceTree = "<group>";
+		};
+		1852E5F51DCC72B300E17205 /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ProfileView;
 			sourceTree = "<group>";
 		};
 		185379651DC6EF9800236B7A = {
@@ -168,7 +230,6 @@
 		185379841DC6EFB400236B7A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1801DED41DCB8BA800F2EE1E /* Welcome */,
 				185379851DC6EFB400236B7A /* Add(添加) */,
 				185379871DC6EFB400236B7A /* Discover(发现) */,
 				185379891DC6EFB400236B7A /* Home(首页) */,
@@ -218,9 +279,10 @@
 		185379901DC6EFB400236B7A /* Main(主要) */ = {
 			isa = PBXGroup;
 			children = (
+				1852E5DF1DCC258A00E17205 /* Welcome */,
+				185379931DC6EFB400236B7A /* OAuth */,
 				185379911DC6EFB400236B7A /* BaseViewController.swift */,
 				185379921DC6EFB400236B7A /* MainViewController.swift */,
-				185379931DC6EFB400236B7A /* OAuth */,
 			);
 			path = "Main(主要)";
 			sourceTree = "<group>";
@@ -266,6 +328,7 @@
 		1853799E1DC6EFB400236B7A /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				1852E5EB1DCC6D1B00E17205 /* NSDate-Extension.swift */,
 				1853799F1DC6EFB400236B7A /* UIBarItem-Extension.swift */,
 				185379A01DC6EFB400236B7A /* UIButton-Extension.swift */,
 			);
@@ -275,35 +338,14 @@
 		185379A51DC6EFB400236B7A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				185379A61DC6EFB400236B7A /* AddView */,
-				185379A71DC6EFB400236B7A /* DiscoverView */,
-				185379A81DC6EFB400236B7A /* HomeView */,
+				1852E5EF1DCC72B300E17205 /* AddView */,
+				1852E5F01DCC72B300E17205 /* DiscoverView */,
+				1852E5F11DCC72B300E17205 /* HomeView */,
+				1852E5F41DCC72B300E17205 /* MessageView */,
+				1852E5F51DCC72B300E17205 /* ProfileView */,
 				185379A91DC6EFB400236B7A /* MainView */,
-				185379AC1DC6EFB400236B7A /* MessageView */,
-				185379AD1DC6EFB400236B7A /* ProfileView */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		185379A61DC6EFB400236B7A /* AddView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = AddView;
-			sourceTree = "<group>";
-		};
-		185379A71DC6EFB400236B7A /* DiscoverView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DiscoverView;
-			sourceTree = "<group>";
-		};
-		185379A81DC6EFB400236B7A /* HomeView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = HomeView;
 			sourceTree = "<group>";
 		};
 		185379A91DC6EFB400236B7A /* MainView */ = {
@@ -313,20 +355,6 @@
 				185379AB1DC6EFB400236B7A /* VisitorView.xib */,
 			);
 			path = MainView;
-			sourceTree = "<group>";
-		};
-		185379AC1DC6EFB400236B7A /* MessageView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MessageView;
-			sourceTree = "<group>";
-		};
-		185379AD1DC6EFB400236B7A /* ProfileView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ProfileView;
 			sourceTree = "<group>";
 		};
 		7CA4C0469B4DDBDEC283309E /* Pods */ = {
@@ -409,10 +437,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1801DED81DCB8BC500F2EE1E /* WelcomeViewController.xib in Resources */,
+				1852E5E31DCC258A00E17205 /* WelcomeViewController.xib in Resources */,
 				185379B81DC6EFB400236B7A /* OAuthViewController.xib in Resources */,
 				185379C11DC6EFB400236B7A /* VisitorView.xib in Resources */,
 				185379791DC6EF9800236B7A /* Assets.xcassets in Resources */,
+				1852E5F71DCC72B300E17205 /* HomeTableViewCell.xib in Resources */,
 				185379B31DC6EFB400236B7A /* PopoverViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,11 +501,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1852E5EC1DCC6D1B00E17205 /* NSDate-Extension.swift in Sources */,
 				185379B11DC6EFB400236B7A /* PopoverAnimator.swift in Sources */,
+				1852E5F61DCC72B300E17205 /* HomeTableViewCell.swift in Sources */,
 				185379BC1DC6EFB400236B7A /* UIButton-Extension.swift in Sources */,
 				185379B41DC6EFB400236B7A /* YJPresentationController.swift in Sources */,
 				185379AF1DC6EFB400236B7A /* DiscoverViewController.swift in Sources */,
 				181F38081DCB37B600A82E5C /* UserAccount.swift in Sources */,
+				1852E5F91DCC7F0000E17205 /* StatusViewModel.swift in Sources */,
 				185379BB1DC6EFB400236B7A /* UIBarItem-Extension.swift in Sources */,
 				181F38061DCB1A8100A82E5C /* NetworkTools.swift in Sources */,
 				1801DED31DCB870300F2EE1E /* UserAccountViewModel.swift in Sources */,
@@ -485,14 +517,16 @@
 				185379721DC6EF9800236B7A /* AppDelegate.swift in Sources */,
 				185379BA1DC6EFB400236B7A /* ProfileViewController.swift in Sources */,
 				185379B51DC6EFB400236B7A /* BaseViewController.swift in Sources */,
-				1801DED71DCB8BC500F2EE1E /* WelcomeViewController.swift in Sources */,
+				1852E5E21DCC258A00E17205 /* WelcomeViewController.swift in Sources */,
 				185379BF1DC6EFB400236B7A /* TitleButton.swift in Sources */,
 				185379B91DC6EFB400236B7A /* MessageViewController.swift in Sources */,
+				1852E5EE1DCC71EE00E17205 /* UserModel.swift in Sources */,
 				185379BE1DC6EFB400236B7A /* DLog.swift in Sources */,
 				185379B61DC6EFB400236B7A /* MainViewController.swift in Sources */,
 				185379B21DC6EFB400236B7A /* PopoverViewController.swift in Sources */,
 				185379C01DC6EFB400236B7A /* VisitorView.swift in Sources */,
 				185379BD1DC6EFB400236B7A /* Common.swift in Sources */,
+				1852E5E61DCC505A00E17205 /* StatusModel.swift in Sources */,
 				185379B01DC6EFB400236B7A /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -603,6 +637,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "--.WeBo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = Classes/Other/OCContainerHeader.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -617,6 +652,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "--.WeBo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = Classes/Other/OCContainerHeader.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

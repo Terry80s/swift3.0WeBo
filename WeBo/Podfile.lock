@@ -16,6 +16,9 @@ PODS:
     - AFNetworking/NSURLSession
   - FDFullscreenPopGesture (1.1)
   - MJRefresh (3.1.12)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
   - SnapKit (3.0.2)
   - SVProgressHUD (2.0.3)
 
@@ -23,6 +26,7 @@ DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
   - FDFullscreenPopGesture
   - MJRefresh
+  - SDWebImage
   - SnapKit (~> 3.0.2)
   - SVProgressHUD
 
@@ -30,9 +34,10 @@ SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
 
-PODFILE CHECKSUM: c4ddcaac08985ef7f8704448573d8110aaedc316
+PODFILE CHECKSUM: 1e6f0a51f16f5ab61eb9c2b6945440138110aa3d
 
 COCOAPODS: 1.0.0

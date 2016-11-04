@@ -42,6 +42,7 @@ class UserAccountViewModel {
     
     // MARK:- 重写init()函数
     init() {
+        print(accountPath)
         // 1.从沙盒中读取中归档的信息
         account = NSKeyedUnarchiver.unarchiveObject(withFile: accountPath) as? UserAccount
 

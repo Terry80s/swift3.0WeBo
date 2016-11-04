@@ -36,7 +36,6 @@ class MainViewController: UITabBarController {
 extension MainViewController {
 
     //设置加号按钮
-    
     fileprivate func setupComposeBtn() {
         
         tabBar.addSubview(composeBtn)
