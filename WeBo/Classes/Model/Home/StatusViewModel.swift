@@ -15,10 +15,13 @@ class StatusViewModel: NSObject {
     
     //MARK:- 对数据处理的属性
     var sourceText : String?    //截取后的微博来源
-    var createAtText : String?  // 格式化后的微博的时间
+    var createAtText : String?  //格式化后的微博的时间
     
     var verifiedImage: UIImage? //用户认证
-    var vipImage: UIImage?
+    var vipImage: UIImage?      //vipImg
+    
+    var profileURL: NSURL? //处理头像
+    
     
     init(status: StatusModel) {
        
@@ -61,5 +64,10 @@ class StatusViewModel: NSObject {
         if mbrank > 0 && mbrank <= 6 {
             vipImage = UIImage(named: "common_icon_membership_level\(mbrank)")
         }
+        
+        // 5.处理头像的请求
+        let profileUrlSring = status.user?.profile_image_url ?? ""
+        profileURL = NSURL(string: profileUrlSring)
+        
     }
 }

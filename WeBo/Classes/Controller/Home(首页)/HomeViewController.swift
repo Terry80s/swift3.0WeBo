@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SVProgressHUD
 class HomeViewController: BaseViewController {
  
     //MARK:- 懒加载属性
@@ -35,7 +35,10 @@ class HomeViewController: BaseViewController {
         
         //注册 tableViewCell
         self.tableView.register(UINib.init(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeCell")
-        
+        self.tableView.separatorStyle = .none
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 200
+
         //请求网络数据
         loadStatuses() 
     }
@@ -94,7 +97,9 @@ extension HomeViewController {
 
     fileprivate func loadStatuses() {
     
+        SVProgressHUD.show(withStatus: "正在加载...")
         NetworkTools.shareInstance.loadStatus { (result, error) -> (Void) in
+            SVProgressHUD.dismiss()
             // 1.错误信息校验
             if error != nil {
             DLog(error)
@@ -125,8 +130,9 @@ extension HomeViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell", for: indexPath)
-        cell.backgroundColor = UIColor.red
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell", for: indexPath) as! HomeTableViewCell
+        
+        cell.viewModel = self.dataArr[indexPath.row]
         return cell
     }
 }
