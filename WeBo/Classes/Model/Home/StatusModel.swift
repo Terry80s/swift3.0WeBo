@@ -18,6 +18,8 @@ class StatusModel: NSObject {
     var created_at: String? //时间处理
     var user: UserModel?    //用户信息
   
+    var pic_urls: [[String: String]]? //微博的配图
+    
     //MARK:- 自定义构造函数
     init(dict: [String: Any]) {
         super.init()

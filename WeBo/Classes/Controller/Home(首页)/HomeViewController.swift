@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import SDWebImage
 class HomeViewController: BaseViewController {
  
     //MARK:- 懒加载属性
@@ -36,8 +37,9 @@ class HomeViewController: BaseViewController {
         //注册 tableViewCell
         self.tableView.register(UINib.init(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeCell")
         self.tableView.separatorStyle = .none
+        //给定 cell 一个最大的高度
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 200
+        self.tableView.estimatedRowHeight = 1000
 
         //请求网络数据
         loadStatuses() 
@@ -70,8 +72,7 @@ extension HomeViewController {
         DLog("点击的是左边的 btn")
     }
     
-    @objc fileprivate func rightBtnClick
-        () {
+    @objc fileprivate func rightBtnClick() {
         DLog("点击的是右边的 btn")
     }
     
@@ -109,14 +110,43 @@ extension HomeViewController {
             guard let resultArray = result else {
                 return
             }
+     
+//            guard let anyObject = try? JSONSerialization.data(withJSONObject: result ?? "", options: [])else {
+//                return
+//            }
+//            let jsonString = String(data: anyObject, encoding: .utf8)
+//            
+//            print("*****---------%@_------***",jsonString ?? "")
             // 3.遍历微博对应的字典
             for statusDict in resultArray {
                 let model = StatusModel(dict: statusDict)
                 let viewModel = StatusViewModel(status: model)
                 self.dataArr.append(viewModel)
             }
-            //刷新表
-            self.tableView.reloadData()
+            
+            // 图片的缓存处理,拿到图片的宽高比
+            self.cacheImages(viewModel: self.dataArr)
+                       
+        }
+    }
+    
+    fileprivate func cacheImages(viewModel: [StatusViewModel]) {
+        //1. 使用 GCD 创建一个动画组
+        let group = DispatchGroup()
+        for viewModel in viewModel {
+            for picURL in viewModel.picURLs {
+                // 添加到一个组中
+                group.enter()
+                SDWebImageManager.shared().downloadImage(with: picURL, options: [], progress: nil, completed: { (_, _, _, _, _) in
+                    //3. 从组中移除
+                    group.leave()
+
+                })
+            }
+        }
+        //回到主线程刷新表格
+      group.notify(queue: DispatchQueue.main) {
+        self.tableView.reloadData()
         }
     }
 }

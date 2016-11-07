@@ -8,7 +8,10 @@
 
 import UIKit
 import SDWebImage
+
 private let edgeMargin: CGFloat = 12
+private let itemMargin: CGFloat = 10
+
 class HomeTableViewCell: UITableViewCell {
 
     //MARK: - 控件属性
@@ -19,20 +22,25 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var timeImgLable: UILabel!
     @IBOutlet weak var sourceLable: UILabel!
     @IBOutlet weak var contentLable: UILabel!
+    @IBOutlet weak var picView: PicCollectionView!
     
     //MARK: - 约束属性
     @IBOutlet weak var contentWitdhConns: NSLayoutConstraint!
+    @IBOutlet weak var picViewHCons: NSLayoutConstraint!
+    @IBOutlet weak var picViewWCons: NSLayoutConstraint!
     
     //MARK: - 自定义属性
     var viewModel: StatusViewModel? {
         didSet {
         
+            // nil 校验
             guard let viewModel = viewModel else {
                 return
             }
             
             iconImgView.sd_setImage(with: viewModel.profileURL as URL!, placeholderImage: UIImage(named: "avatar_default_small"))
             
+          
             verifiedImgView.image = viewModel.verifiedImage
             
             vipImgView.image = viewModel.vipImage
@@ -45,8 +53,16 @@ class HomeTableViewCell: UITableViewCell {
             
             contentLable.text = viewModel.status?.text
             
-            //设置会员昵称的颜色
+            // 设置会员昵称的颜色
             screenNameLable.textColor = viewModel.vipImage == nil ? UIColor.black : UIColor.orange
+            // 计算 picView的宽度和高度的约束
+            let picViewSize = calculatePicViewSize(count: viewModel.picURLs.count)
+            picViewWCons.constant = picViewSize.width
+            picViewHCons.constant = picViewSize.height
+            
+            
+            // 将picURL数据传递给picView
+            picView.picURL = viewModel.picURLs
         }
     }
     
@@ -54,7 +70,55 @@ class HomeTableViewCell: UITableViewCell {
         super.awakeFromNib()
     
         contentWitdhConns.constant = UIScreen.main.bounds.width - 2 * edgeMargin
+       
     }
+}
 
+//MARK:- 计算方法
+extension HomeTableViewCell {
+
+    func calculatePicViewSize(count: Int) -> CGSize {
     
+        // 1.没有配图
+        if count == 0 {
+        
+            return CGSize.zero
+        }
+        // 2.取出picView对应的layout
+        let layout = picView.collectionViewLayout as! UICollectionViewFlowLayout
+
+        // 3.单张配图比例加载图片
+        if count == 1 {
+            // 取出图片
+            let image = SDWebImageManager.shared().imageCache.imageFromDiskCache(forKey: viewModel?.picURLs.last?.absoluteString)
+            
+            // 2.设置一张图片是layout的itemSize
+            layout.itemSize = CGSize(width: (image?.size.width)! * 2, height: (image?.size.height)! * 2)
+            
+            return CGSize(width: (image?.size.width)! * 2, height: (image?.size.height)! * 2)
+        }
+        
+        // 4.计算出来 imageViewWH
+        let imageViewWH = (UIScreen.main.bounds.width - 2 * edgeMargin - 2 * itemMargin) / 3
+        // 5.设置其他张图片时layout的itemSize
+        layout.itemSize = CGSize(width: imageViewWH, height: imageViewWH)
+        
+        // 6.四张图
+        if count == 4 {
+            let picViewWH = imageViewWH * 2 + itemMargin
+            return CGSize(width: picViewWH, height: picViewWH)
+        }
+        // 7.其他张配图
+        // 7.1.计算行数
+        let rows = CGFloat((count - 1) / 3 + 1)
+        
+        // 7.2.计算picView的高度
+        let picViewH = rows * imageViewWH + (rows - 1) * itemMargin
+        
+        // 7.3.计算picView的宽度
+        let picViewW = UIScreen.main.bounds.width - 2 * edgeMargin
+        
+        return CGSize(width: picViewW, height: picViewH)
+        
+    }
 }

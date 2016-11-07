@@ -32,6 +32,7 @@ class NetworkTools: AFHTTPSessionManager {
 extension NetworkTools {
 
     //逃逸闭包 @escaping
+    //当一个传入函数的闭包在函数执行结束之后才会被调用，这样的闭包就叫做逃逸闭包。如果一个函数的参数有一个逃逸闭包，可以在参数前加@escaping关键字来修饰。
     func requestData(methodType: RequestType, urlString: String, parameters: [String: Any], finished: @escaping (_ result : Any?, _ error : Error?) -> (Void)) {
         
         // 1.定义成功的回调闭包

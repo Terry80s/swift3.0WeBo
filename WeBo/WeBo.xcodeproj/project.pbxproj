@@ -10,6 +10,9 @@
 		1801DED31DCB870300F2EE1E /* UserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801DED21DCB870300F2EE1E /* UserAccountViewModel.swift */; };
 		181F38061DCB1A8100A82E5C /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F38051DCB1A8100A82E5C /* NetworkTools.swift */; };
 		181F38081DCB37B600A82E5C /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F38071DCB37B600A82E5C /* UserAccount.swift */; };
+		1830AD651DD046A2003CEB83 /* PicCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1830AD641DD046A2003CEB83 /* PicCollectionView.swift */; };
+		1830AD6C1DD065C2003CEB83 /* PicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1830AD6A1DD065C2003CEB83 /* PicCollectionViewCell.swift */; };
+		1830AD6D1DD065C2003CEB83 /* PicCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1830AD6B1DD065C2003CEB83 /* PicCollectionViewCell.xib */; };
 		1852E5E21DCC258A00E17205 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1852E5E01DCC258A00E17205 /* WelcomeViewController.swift */; };
 		1852E5E31DCC258A00E17205 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1852E5E11DCC258A00E17205 /* WelcomeViewController.xib */; };
 		1852E5E61DCC505A00E17205 /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1852E5E51DCC505A00E17205 /* StatusModel.swift */; };
@@ -48,6 +51,9 @@
 		1801DED21DCB870300F2EE1E /* UserAccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccountViewModel.swift; sourceTree = "<group>"; };
 		181F38051DCB1A8100A82E5C /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		181F38071DCB37B600A82E5C /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
+		1830AD641DD046A2003CEB83 /* PicCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicCollectionView.swift; sourceTree = "<group>"; };
+		1830AD6A1DD065C2003CEB83 /* PicCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicCollectionViewCell.swift; sourceTree = "<group>"; };
+		1830AD6B1DD065C2003CEB83 /* PicCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PicCollectionViewCell.xib; sourceTree = "<group>"; };
 		1852E5DE1DCC1D3500E17205 /* OCContainerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCContainerHeader.h; sourceTree = "<group>"; };
 		1852E5E01DCC258A00E17205 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		1852E5E11DCC258A00E17205 /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
@@ -166,6 +172,9 @@
 			children = (
 				1852E5F21DCC72B300E17205 /* HomeTableViewCell.swift */,
 				1852E5F31DCC72B300E17205 /* HomeTableViewCell.xib */,
+				1830AD641DD046A2003CEB83 /* PicCollectionView.swift */,
+				1830AD6A1DD065C2003CEB83 /* PicCollectionViewCell.swift */,
+				1830AD6B1DD065C2003CEB83 /* PicCollectionViewCell.xib */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -437,6 +446,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1830AD6D1DD065C2003CEB83 /* PicCollectionViewCell.xib in Resources */,
 				1852E5E31DCC258A00E17205 /* WelcomeViewController.xib in Resources */,
 				185379B81DC6EFB400236B7A /* OAuthViewController.xib in Resources */,
 				185379C11DC6EFB400236B7A /* VisitorView.xib in Resources */,
@@ -502,6 +512,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1852E5EC1DCC6D1B00E17205 /* NSDate-Extension.swift in Sources */,
+				1830AD651DD046A2003CEB83 /* PicCollectionView.swift in Sources */,
 				185379B11DC6EFB400236B7A /* PopoverAnimator.swift in Sources */,
 				1852E5F61DCC72B300E17205 /* HomeTableViewCell.swift in Sources */,
 				185379BC1DC6EFB400236B7A /* UIButton-Extension.swift in Sources */,
@@ -521,6 +532,7 @@
 				185379BF1DC6EFB400236B7A /* TitleButton.swift in Sources */,
 				185379B91DC6EFB400236B7A /* MessageViewController.swift in Sources */,
 				1852E5EE1DCC71EE00E17205 /* UserModel.swift in Sources */,
+				1830AD6C1DD065C2003CEB83 /* PicCollectionViewCell.swift in Sources */,
 				185379BE1DC6EFB400236B7A /* DLog.swift in Sources */,
 				185379B61DC6EFB400236B7A /* MainViewController.swift in Sources */,
 				185379B21DC6EFB400236B7A /* PopoverViewController.swift in Sources */,
