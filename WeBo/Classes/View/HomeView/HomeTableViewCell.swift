@@ -23,11 +23,15 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var sourceLable: UILabel!
     @IBOutlet weak var contentLable: UILabel!
     @IBOutlet weak var picView: PicCollectionView!
+    @IBOutlet weak var retweetedContentLabel: UILabel!
+    @IBOutlet weak var retweetedBgView: UIView!
     
     //MARK: - 约束属性
     @IBOutlet weak var contentWitdhConns: NSLayoutConstraint!
     @IBOutlet weak var picViewHCons: NSLayoutConstraint!
     @IBOutlet weak var picViewWCons: NSLayoutConstraint!
+    @IBOutlet weak var picViewBottomCons: NSLayoutConstraint!
+    @IBOutlet weak var retweetedContentLabelTopCons: NSLayoutConstraint!
     
     //MARK: - 自定义属性
     var viewModel: StatusViewModel? {
@@ -60,10 +64,30 @@ class HomeTableViewCell: UITableViewCell {
             picViewWCons.constant = picViewSize.width
             picViewHCons.constant = picViewSize.height
             
-            
             // 将picURL数据传递给picView
             picView.picURL = viewModel.picURLs
+            
+            // 设置转发微博的正文
+            if viewModel.status?.retweeted_status != nil {
+                if let screenName = viewModel.status?.retweeted_status?.user?.screen_name, let retweetedText = viewModel.status?.retweeted_status?.text {
+                    
+                    retweetedContentLabel.text = "@" + "\(screenName) :" + retweetedText
+                    // 设置转发正文距离顶部的约束
+                    retweetedContentLabelTopCons.constant = 15
+                }
+                // 2.设置背景显示
+                retweetedBgView.isHidden = false
+            }else {
+                // 设置转发微博的正文
+                retweetedContentLabel.text = nil
+                // 设置背景显示
+                retweetedBgView.isHidden = true
+                // 3.设置转发正文距离顶部的约束
+                retweetedContentLabelTopCons.constant = 0
+
+            }
         }
+    
     }
     
     override func awakeFromNib() {
@@ -81,9 +105,15 @@ extension HomeTableViewCell {
     
         // 1.没有配图
         if count == 0 {
-        
+            
+            //解决约束重复的问题
+            picViewBottomCons.constant = 0
             return CGSize.zero
         }
+        
+        // 有配图需要改约束有值
+        picViewBottomCons.constant = 10
+        
         // 2.取出picView对应的layout
         let layout = picView.collectionViewLayout as! UICollectionViewFlowLayout
 
@@ -100,6 +130,7 @@ extension HomeTableViewCell {
         
         // 4.计算出来 imageViewWH
         let imageViewWH = (UIScreen.main.bounds.width - 2 * edgeMargin - 2 * itemMargin) / 3
+        
         // 5.设置其他张图片时layout的itemSize
         layout.itemSize = CGSize(width: imageViewWH, height: imageViewWH)
         

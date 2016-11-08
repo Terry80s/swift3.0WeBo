@@ -19,15 +19,23 @@ class StatusModel: NSObject {
     var user: UserModel?    //用户信息
   
     var pic_urls: [[String: String]]? //微博的配图
+    var retweeted_status: StatusModel? //微博对应的转发微博
     
-    //MARK:- 自定义构造函数
+    //MARK:- 自定义构造函数   
     init(dict: [String: Any]) {
         super.init()
         setValuesForKeys(dict)
         
+        // 1.将用户字典转成用户模型对象
         if let userDict = dict["user"] as? [String: Any] {
             user = UserModel.init(dict: userDict)
         }
+        
+        // 2.将转发微博字典转成转发微博模型对象
+        if let retweetedStatusDict = dict["retweeted_status"] as? [String: Any] {
+            retweeted_status = StatusModel(dict: retweetedStatusDict)
+        }
+        
     }
     
     override func setValue(_ value: Any?, forUndefinedKey key: String) {
