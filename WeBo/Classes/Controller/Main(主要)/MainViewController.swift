@@ -105,7 +105,11 @@ extension MainViewController {
     //如果 swift 中将一个函数声明称 private, 那么该函数不会被添加到方法列表中
     
     @objc fileprivate func composeBtnClick() {
-       DLog("点击了")
+      
+        let composeVC = ComposeViewController()
         
+        let nav = UINavigationController(rootViewController: composeVC)
+        
+        present(nav, animated: true, completion: nil)
     }
 }

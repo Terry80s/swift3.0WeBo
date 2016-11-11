@@ -9,6 +9,7 @@
 import UIKit
 import SVProgressHUD
 import SDWebImage
+import MJRefresh
 class HomeViewController: BaseViewController {
  
     //MARK:- 懒加载属性
@@ -21,6 +22,8 @@ class HomeViewController: BaseViewController {
     }
     
     fileprivate lazy var dataArr: [StatusViewModel] = [StatusViewModel]()
+    
+    fileprivate lazy var tipLab: UILabel = UILabel()
     
     // MARK:- 系统回调函数
     override func viewDidLoad() {
@@ -41,8 +44,13 @@ class HomeViewController: BaseViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 1000
 
-        //请求网络数据
-        loadStatuses() 
+        //设置上下拉刷新
+        setupHeaderView()
+        //设置上啦加载更多
+        setupFooterView()
+        
+        //设置提示Lable
+        setupTipLabel()
     }
 }
 
@@ -61,6 +69,37 @@ extension HomeViewController {
         titleBtn.setTitle("首页", for: UIControlState())
         titleBtn.addTarget(self, action: #selector(HomeViewController.titleBtnClick(_:)), for: .touchUpInside)
         navigationItem.titleView = titleBtn
+    }
+    
+    fileprivate func setupHeaderView() {
+        // 1.创建headerView
+        let header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(HomeViewController.loadNewStatuses))
+        
+        // 2.设置 header的属性
+    
+        header?.setTitle("下拉刷新", for: .idle)
+        header?.setTitle("释放更新", for: .pulling)
+        header?.setTitle("加载中", for: .refreshing)
+        // 3.设置tableView的header
+        self.tableView.mj_header = header
+        // 4.进入刷新状态
+        tableView.mj_header.beginRefreshing()
+
+    }
+    fileprivate func setupFooterView() {
+    
+        tableView.mj_footer = MJRefreshAutoFooter(refreshingTarget: self, refreshingAction: #selector(HomeViewController.loadMoreStatuses))
+    }
+    
+    fileprivate func setupTipLabel() {
+    
+        navigationController?.navigationBar.insertSubview(tipLab, at: 0)
+        tipLab.frame = CGRect(x: 0, y: 10, width: UIScreen.main.bounds.width, height: 32)
+        tipLab.backgroundColor = UIColor.orange
+        tipLab.textColor = UIColor.white
+        tipLab.font = UIFont.systemFont(ofSize: 14)
+        tipLab.textAlignment = .center
+        tipLab.isHidden = true
     }
 }
 
@@ -96,41 +135,69 @@ extension HomeViewController {
 //MARK:- 请求网络数据
 extension HomeViewController {
 
-    fileprivate func loadStatuses() {
+    /// 加载最新的数据
+    @objc fileprivate func loadNewStatuses() {
+        loadStatuses(true)
+    }
     
+    // 加载更多数据
+    @objc fileprivate func loadMoreStatuses() {
+    
+        loadStatuses(false)
+    }
+    
+    fileprivate func loadStatuses(_ isNewData : Bool) {
+    
+        // 1.获取since_id/max_id
+        var since_id = 0
+        var max_id = 0
+        if isNewData {
+            since_id = self.dataArr.first?.status?.mid ?? 0
+        } else {
+            max_id = self.dataArr.last?.status?.mid ?? 0
+            max_id = max_id == 0 ? 0 : (max_id - 1)
+        }
+        
         SVProgressHUD.show(withStatus: "正在加载...")
-        NetworkTools.shareInstance.loadStatus { (result, error) -> (Void) in
-            SVProgressHUD.dismiss()
-            // 1.错误信息校验
-            if error != nil {
+       NetworkTools.shareInstance.loadStatus(since_id, max_id: max_id) { (result, error) -> (Void) in
+        SVProgressHUD.dismiss()
+        // 1.错误信息校验
+        if error != nil {
             DLog(error)
-                return
-            }
-            // 2.获取可选类型中的数据
-            guard let resultArray = result else {
-                return
-            }
-     
-//            guard let anyObject = try? JSONSerialization.data(withJSONObject: result ?? "", options: [])else {
-//                return
-//            }
-//            let jsonString = String(data: anyObject, encoding: .utf8)
-//            
-//            print("*****---------%@_------***",jsonString ?? "")
-            // 3.遍历微博对应的字典
-            for statusDict in resultArray {
-                let model = StatusModel(dict: statusDict)
-                let viewModel = StatusViewModel(status: model)
-                self.dataArr.append(viewModel)
-            }
-            
-            // 图片的缓存处理,拿到图片的宽高比
-            self.cacheImages(viewModel: self.dataArr)
-                       
+            return
+        }
+        // 2.获取可选类型中的数据
+        guard let resultArray = result else {
+            return
+        }
+        
+        //            guard let anyObject = try? JSONSerialization.data(withJSONObject: result ?? "", options: [])else {
+        //                return
+        //            }
+        //            let jsonString = String(data: anyObject, encoding: .utf8)
+        //
+        //            print("*****---------%@_------***",jsonString ?? "")
+        // 3.遍历微博对应的字典
+        var tempViewModel = [StatusViewModel]()
+        for statusDict in resultArray {
+            let model = StatusModel(dict: statusDict)
+            let viewModel = StatusViewModel(status: model)
+            tempViewModel.append(viewModel)
+        }
+        
+        // 4.将数据放入到成员变量的数组中
+        if isNewData {
+            self.dataArr = tempViewModel + self.dataArr
+        } else {
+            self.dataArr += tempViewModel
+        }
+        // 图片的缓存处理,拿到图片的宽高比
+        self.cacheImages(viewModel: tempViewModel, isNewData: isNewData)
+        
         }
     }
     
-    fileprivate func cacheImages(viewModel: [StatusViewModel]) {
+    fileprivate func cacheImages(viewModel: [StatusViewModel],isNewData: Bool) {
         //1. 使用 GCD 创建一个动画组
         let group = DispatchGroup()
         for viewModel in viewModel {
@@ -146,7 +213,33 @@ extension HomeViewController {
         }
         //回到主线程刷新表格
       group.notify(queue: DispatchQueue.main) {
+        
         self.tableView.reloadData()
+        //停止刷新
+        self.tableView.mj_header.endRefreshing()
+        self.tableView.mj_footer.endRefreshing()
+        
+        if isNewData {
+            //显示提示的lable
+            self.showTipLabel(viewModel.count)
+            }
+        }
+    }
+    
+    fileprivate func showTipLabel(_ count: Int) {
+    
+        tipLab.isHidden = false
+        tipLab.text = count == 0 ? "没有新数据" : "\(count)条新微薄"
+        
+        //执行动画
+        UIView.animate(withDuration: 1.0, animations: {
+            self.tipLab.frame.origin.y = 44
+        }) { (_) in
+            UIView.animate(withDuration: 1.0, delay: 1.5, options: .curveEaseOut, animations: { 
+                self.tipLab.frame.origin.y = 10
+            }, completion: { (_) in
+                self.tipLab.isHidden = true
+            })
         }
     }
 }

@@ -37,37 +37,41 @@ class HomeTableViewCell: UITableViewCell {
     var viewModel: StatusViewModel? {
         didSet {
         
-            // nil 校验
+            // 1.nil值校验
             guard let viewModel = viewModel else {
                 return
             }
-            
+            // 2.设置头像
             iconImgView.sd_setImage(with: viewModel.profileURL as URL!, placeholderImage: UIImage(named: "avatar_default_small"))
-            
-          
+            // 3.设置认证的图标
             verifiedImgView.image = viewModel.verifiedImage
-            
+            // 4.会员图标
             vipImgView.image = viewModel.vipImage
-            
+            // 5.昵称
             screenNameLable.text = viewModel.status?.user?.screen_name
-            
+            // 6.设置时间的Label
             timeImgLable.text = viewModel.createAtText
-            
-            sourceLable.text = viewModel.sourceText
-            
+            // 设置来源
+            if let sourceText = viewModel.sourceText {
+                sourceLable.text = "来自 \(sourceText)"
+            }else {
+                sourceLable.text = nil
+            }
+           
+            // 8.设置微博正文
             contentLable.text = viewModel.status?.text
             
-            // 设置会员昵称的颜色
+            // 9设置会员昵称的颜色
             screenNameLable.textColor = viewModel.vipImage == nil ? UIColor.black : UIColor.orange
-            // 计算 picView的宽度和高度的约束
+            // 10计算 picView的宽度和高度的约束
             let picViewSize = calculatePicViewSize(count: viewModel.picURLs.count)
             picViewWCons.constant = picViewSize.width
             picViewHCons.constant = picViewSize.height
             
-            // 将picURL数据传递给picView
+            // 11将picURL数据传递给picView
             picView.picURL = viewModel.picURLs
             
-            // 设置转发微博的正文
+            // 12设置转发微博的正文
             if viewModel.status?.retweeted_status != nil {
                 if let screenName = viewModel.status?.retweeted_status?.user?.screen_name, let retweetedText = viewModel.status?.retweeted_status?.text {
                     
@@ -87,7 +91,6 @@ class HomeTableViewCell: UITableViewCell {
 
             }
         }
-    
     }
     
     override func awakeFromNib() {
@@ -136,7 +139,7 @@ extension HomeTableViewCell {
         
         // 6.四张图
         if count == 4 {
-            let picViewWH = imageViewWH * 2 + itemMargin
+            let picViewWH = imageViewWH * 2 + itemMargin + 1
             return CGSize(width: picViewWH, height: picViewWH)
         }
         // 7.其他张配图

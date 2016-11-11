@@ -92,12 +92,14 @@ extension NetworkTools {
 //MARK:- 请求首页数据
 extension NetworkTools {
 
-    func loadStatus(finished:@escaping (_ result: [[String: Any]]?, _ error: Error?) -> (Void)) {
+    func loadStatus(_ since_id : Int, max_id : Int, finished:@escaping (_ result: [[String: Any]]?, _ error: Error?) -> (Void)) {
         
         let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
-        let parameter = ["access_token": UserAccountViewModel.shareIntance.account?.access_token]
+        //设置参数
+        let accessToken = (UserAccountViewModel.shareIntance.account?.access_token)!
+        let parameters = ["access_token" : accessToken, "since_id" : "\(since_id)", "max_id" : "\(max_id)"]
         
-        requestData(methodType: .get, urlString: urlString, parameters: parameter) { (result, error) -> (Void) in
+        requestData(methodType: .get, urlString: urlString, parameters: parameters) { (result, error) -> (Void) in
             
             guard let resultDict = result as? [String: Any] else {
             

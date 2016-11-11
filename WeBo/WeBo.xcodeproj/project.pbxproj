@@ -13,6 +13,7 @@
 		1830AD651DD046A2003CEB83 /* PicCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1830AD641DD046A2003CEB83 /* PicCollectionView.swift */; };
 		1830AD6C1DD065C2003CEB83 /* PicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1830AD6A1DD065C2003CEB83 /* PicCollectionViewCell.swift */; };
 		1830AD6D1DD065C2003CEB83 /* PicCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1830AD6B1DD065C2003CEB83 /* PicCollectionViewCell.xib */; };
+		184DBF211DD41FAB006BCC13 /* ComposeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184DBF201DD41FAB006BCC13 /* ComposeTextView.swift */; };
 		1852E5E21DCC258A00E17205 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1852E5E01DCC258A00E17205 /* WelcomeViewController.swift */; };
 		1852E5E31DCC258A00E17205 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1852E5E11DCC258A00E17205 /* WelcomeViewController.xib */; };
 		1852E5E61DCC505A00E17205 /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1852E5E51DCC505A00E17205 /* StatusModel.swift */; };
@@ -23,7 +24,6 @@
 		1852E5F91DCC7F0000E17205 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1852E5F81DCC7F0000E17205 /* StatusViewModel.swift */; };
 		185379721DC6EF9800236B7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185379711DC6EF9800236B7A /* AppDelegate.swift */; };
 		185379791DC6EF9800236B7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 185379781DC6EF9800236B7A /* Assets.xcassets */; };
-		185379AE1DC6EFB400236B7A /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185379861DC6EFB400236B7A /* AddViewController.swift */; };
 		185379AF1DC6EFB400236B7A /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185379881DC6EFB400236B7A /* DiscoverViewController.swift */; };
 		185379B01DC6EFB400236B7A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1853798A1DC6EFB400236B7A /* HomeViewController.swift */; };
 		185379B11DC6EFB400236B7A /* PopoverAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1853798C1DC6EFB400236B7A /* PopoverAnimator.swift */; };
@@ -43,6 +43,8 @@
 		185379BF1DC6EFB400236B7A /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185379A31DC6EFB400236B7A /* TitleButton.swift */; };
 		185379C01DC6EFB400236B7A /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185379AA1DC6EFB400236B7A /* VisitorView.swift */; };
 		185379C11DC6EFB400236B7A /* VisitorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185379AB1DC6EFB400236B7A /* VisitorView.xib */; };
+		18744D051DD2F581005621F9 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18744D031DD2F581005621F9 /* ComposeViewController.swift */; };
+		18744D061DD2F581005621F9 /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18744D041DD2F581005621F9 /* ComposeViewController.xib */; };
 		8EC0D7017CF83483CCA9CF94 /* Pods_WeBo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0EA88CF34FBEB24D542BE5E /* Pods_WeBo.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +56,7 @@
 		1830AD641DD046A2003CEB83 /* PicCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicCollectionView.swift; sourceTree = "<group>"; };
 		1830AD6A1DD065C2003CEB83 /* PicCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicCollectionViewCell.swift; sourceTree = "<group>"; };
 		1830AD6B1DD065C2003CEB83 /* PicCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PicCollectionViewCell.xib; sourceTree = "<group>"; };
+		184DBF201DD41FAB006BCC13 /* ComposeTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTextView.swift; sourceTree = "<group>"; };
 		1852E5DE1DCC1D3500E17205 /* OCContainerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCContainerHeader.h; sourceTree = "<group>"; };
 		1852E5E01DCC258A00E17205 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		1852E5E11DCC258A00E17205 /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
@@ -67,7 +70,6 @@
 		185379711DC6EF9800236B7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		185379781DC6EF9800236B7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1853797D1DC6EF9800236B7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		185379861DC6EFB400236B7A /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		185379881DC6EFB400236B7A /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		1853798A1DC6EFB400236B7A /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1853798C1DC6EFB400236B7A /* PopoverAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAnimator.swift; sourceTree = "<group>"; };
@@ -87,6 +89,8 @@
 		185379A31DC6EFB400236B7A /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
 		185379AA1DC6EFB400236B7A /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		185379AB1DC6EFB400236B7A /* VisitorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitorView.xib; sourceTree = "<group>"; };
+		18744D031DD2F581005621F9 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		18744D041DD2F581005621F9 /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
 		E8355869D4DC831645071552 /* Pods-WeBo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeBo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeBo/Pods-WeBo.release.xcconfig"; sourceTree = "<group>"; };
 		F0EA88CF34FBEB24D542BE5E /* Pods_WeBo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeBo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -134,6 +138,14 @@
 			path = Vendor;
 			sourceTree = "<group>";
 		};
+		184DBF1F1DD41F7C006BCC13 /* ComposeView */ = {
+			isa = PBXGroup;
+			children = (
+				184DBF201DD41FAB006BCC13 /* ComposeTextView.swift */,
+			);
+			path = ComposeView;
+			sourceTree = "<group>";
+		};
 		1852E5DF1DCC258A00E17205 /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,13 +163,6 @@
 				1852E5F81DCC7F0000E17205 /* StatusViewModel.swift */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		1852E5EF1DCC72B300E17205 /* AddView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = AddView;
 			sourceTree = "<group>";
 		};
 		1852E5F01DCC72B300E17205 /* DiscoverView */ = {
@@ -239,7 +244,7 @@
 		185379841DC6EFB400236B7A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				185379851DC6EFB400236B7A /* Add(添加) */,
+				18744D021DD2F55F005621F9 /* Compose(发布) */,
 				185379871DC6EFB400236B7A /* Discover(发现) */,
 				185379891DC6EFB400236B7A /* Home(首页) */,
 				185379901DC6EFB400236B7A /* Main(主要) */,
@@ -247,14 +252,6 @@
 				185379981DC6EFB400236B7A /* Profile(我的) */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		185379851DC6EFB400236B7A /* Add(添加) */ = {
-			isa = PBXGroup;
-			children = (
-				185379861DC6EFB400236B7A /* AddViewController.swift */,
-			);
-			path = "Add(添加)";
 			sourceTree = "<group>";
 		};
 		185379871DC6EFB400236B7A /* Discover(发现) */ = {
@@ -347,7 +344,7 @@
 		185379A51DC6EFB400236B7A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1852E5EF1DCC72B300E17205 /* AddView */,
+				184DBF1F1DD41F7C006BCC13 /* ComposeView */,
 				1852E5F01DCC72B300E17205 /* DiscoverView */,
 				1852E5F11DCC72B300E17205 /* HomeView */,
 				1852E5F41DCC72B300E17205 /* MessageView */,
@@ -364,6 +361,15 @@
 				185379AB1DC6EFB400236B7A /* VisitorView.xib */,
 			);
 			path = MainView;
+			sourceTree = "<group>";
+		};
+		18744D021DD2F55F005621F9 /* Compose(发布) */ = {
+			isa = PBXGroup;
+			children = (
+				18744D031DD2F581005621F9 /* ComposeViewController.swift */,
+				18744D041DD2F581005621F9 /* ComposeViewController.xib */,
+			);
+			path = "Compose(发布)";
 			sourceTree = "<group>";
 		};
 		7CA4C0469B4DDBDEC283309E /* Pods */ = {
@@ -454,6 +460,7 @@
 				185379791DC6EF9800236B7A /* Assets.xcassets in Resources */,
 				1852E5F71DCC72B300E17205 /* HomeTableViewCell.xib in Resources */,
 				185379B31DC6EFB400236B7A /* PopoverViewController.xib in Resources */,
+				18744D061DD2F581005621F9 /* ComposeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,6 +519,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18744D051DD2F581005621F9 /* ComposeViewController.swift in Sources */,
 				1852E5EC1DCC6D1B00E17205 /* NSDate-Extension.swift in Sources */,
 				1830AD651DD046A2003CEB83 /* PicCollectionView.swift in Sources */,
 				185379B11DC6EFB400236B7A /* PopoverAnimator.swift in Sources */,
@@ -521,10 +529,10 @@
 				185379AF1DC6EFB400236B7A /* DiscoverViewController.swift in Sources */,
 				181F38081DCB37B600A82E5C /* UserAccount.swift in Sources */,
 				1852E5F91DCC7F0000E17205 /* StatusViewModel.swift in Sources */,
+				184DBF211DD41FAB006BCC13 /* ComposeTextView.swift in Sources */,
 				185379BB1DC6EFB400236B7A /* UIBarItem-Extension.swift in Sources */,
 				181F38061DCB1A8100A82E5C /* NetworkTools.swift in Sources */,
 				1801DED31DCB870300F2EE1E /* UserAccountViewModel.swift in Sources */,
-				185379AE1DC6EFB400236B7A /* AddViewController.swift in Sources */,
 				185379B71DC6EFB400236B7A /* OAuthViewController.swift in Sources */,
 				185379721DC6EF9800236B7A /* AppDelegate.swift in Sources */,
 				185379BA1DC6EFB400236B7A /* ProfileViewController.swift in Sources */,
