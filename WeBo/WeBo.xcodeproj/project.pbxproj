@@ -45,6 +45,7 @@
 		185379C11DC6EFB400236B7A /* VisitorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185379AB1DC6EFB400236B7A /* VisitorView.xib */; };
 		18744D051DD2F581005621F9 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18744D031DD2F581005621F9 /* ComposeViewController.swift */; };
 		18744D061DD2F581005621F9 /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18744D041DD2F581005621F9 /* ComposeViewController.xib */; };
+		18B5DE821DD5BE1C005F3ACB /* ComposeTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B5DE811DD5BE1C005F3ACB /* ComposeTitleView.swift */; };
 		8EC0D7017CF83483CCA9CF94 /* Pods_WeBo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0EA88CF34FBEB24D542BE5E /* Pods_WeBo.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,7 @@
 		185379AB1DC6EFB400236B7A /* VisitorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitorView.xib; sourceTree = "<group>"; };
 		18744D031DD2F581005621F9 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		18744D041DD2F581005621F9 /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
+		18B5DE811DD5BE1C005F3ACB /* ComposeTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTitleView.swift; sourceTree = "<group>"; };
 		E8355869D4DC831645071552 /* Pods-WeBo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeBo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeBo/Pods-WeBo.release.xcconfig"; sourceTree = "<group>"; };
 		F0EA88CF34FBEB24D542BE5E /* Pods_WeBo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeBo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				184DBF201DD41FAB006BCC13 /* ComposeTextView.swift */,
+				18B5DE811DD5BE1C005F3ACB /* ComposeTitleView.swift */,
 			);
 			path = ComposeView;
 			sourceTree = "<group>";
@@ -548,6 +551,7 @@
 				185379C01DC6EFB400236B7A /* VisitorView.swift in Sources */,
 				185379BD1DC6EFB400236B7A /* Common.swift in Sources */,
 				1852E5E61DCC505A00E17205 /* StatusModel.swift in Sources */,
+				18B5DE821DD5BE1C005F3ACB /* ComposeTitleView.swift in Sources */,
 				185379B01DC6EFB400236B7A /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

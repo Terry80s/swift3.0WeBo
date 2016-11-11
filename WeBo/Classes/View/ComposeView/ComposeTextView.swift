@@ -13,15 +13,17 @@ class ComposeTextView: UITextView {
     //MARK:- 懒加载属性
     lazy var preloadLab: UILabel = UILabel()
     
-    //MARK:- 自定义构造函数
+    //MARK:- 构造函数
     required init?(coder aDecoder: NSCoder) {
        
         super.init(coder: aDecoder)
         
         setupUI()
     }
- 
     
+    override init(frame: CGRect, textContainer: NSTextContainer?) {
+        super.init(frame: frame, textContainer: nil)
+    }
 
 }
 
@@ -47,6 +49,7 @@ extension ComposeTextView {
         
         // 5.设置内容内边距
         textContainerInset = UIEdgeInsetsMake(6, 7, 0, 7)
+        
         
     }
 }

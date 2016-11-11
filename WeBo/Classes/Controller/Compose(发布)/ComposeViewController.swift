@@ -10,10 +10,9 @@ import UIKit
 
 class ComposeViewController: UIViewController {
 
-    //MARK:- 控件属性
-    var textView: ComposeTextView = ComposeTextView(coder: <#T##NSCoder#>)!
-    
     //MARK:- 懒加载属性
+    fileprivate lazy var textView: ComposeTextView = ComposeTextView()
+    fileprivate lazy var titleView: ComposeTitleView = ComposeTitleView()
     
     //MARK:- 系统回掉函数
     override func viewDidLoad() {
@@ -37,6 +36,16 @@ extension ComposeViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "关闭", style: .plain, target: self, action: #selector(ComposeViewController.closeItemBtnClick))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "发布", style: .plain, target: self, action: #selector(ComposeViewController.sendItemBtnClick))
         navigationItem.title = "发微博"
+        
+        titleView.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
+        navigationItem.titleView = titleView
+        
+        textView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.view).offset(64)
+            make.left.equalTo(self.view).offset(12)
+            make.right.equalTo(self.view).offset(-12)
+        }
+        
     }
 }
 
