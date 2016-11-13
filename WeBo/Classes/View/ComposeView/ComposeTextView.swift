@@ -18,11 +18,12 @@ class ComposeTextView: UITextView {
        
         super.init(coder: aDecoder)
         
-        setupUI()
     }
     
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: nil)
+        
+        setupUI()
     }
 
 }
@@ -36,8 +37,10 @@ extension ComposeTextView {
         
         // 2.设置 frame
         preloadLab.snp.makeConstraints { (make) in
-            make.top.equalTo(8)
-            make.left.equalTo(10)
+            make.top.equalTo(0)
+            make.left.equalTo(6)
+            make.width.equalTo(100)
+            make.height.equalTo(21)
         }
         
         // 3.设置属性
@@ -48,8 +51,7 @@ extension ComposeTextView {
         preloadLab.text = "分享新鲜事..."
         
         // 5.设置内容内边距
-        textContainerInset = UIEdgeInsetsMake(6, 7, 0, 7)
-        
+//        textContainerInset = UIEdgeInsetsMake(6, 7, 0, 7)
         
     }
 }

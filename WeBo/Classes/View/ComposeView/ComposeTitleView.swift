@@ -19,11 +19,15 @@ class ComposeTitleView: UIView {
     //MARK:- 构造函数
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        setupUI()
     }
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        fatalError("init(coder:) has not been implemented")
     }
+    
+  
 
 }
 
@@ -34,17 +38,17 @@ extension ComposeTitleView {
     
         addSubview(titleLab)
         addSubview(screenNameLab)
+  
         
         titleLab.snp.makeConstraints { (make) in
-            make.center.equalTo(self)
+            make.centerX.equalTo(self)
             make.top.equalTo(self)
         }
-        
+  
         screenNameLab.snp.makeConstraints { (make) in
-            make.center.equalTo(titleLab.snp.centerX)
+            make.centerX.equalTo(titleLab.snp.centerX)
             make.top.equalTo(titleLab.snp.bottom).offset(3)
         }
-        
         titleLab.font = UIFont.systemFont(ofSize: 16)
         screenNameLab.font = UIFont.systemFont(ofSize: 14)
         screenNameLab.textColor = UIColor.lightGray
