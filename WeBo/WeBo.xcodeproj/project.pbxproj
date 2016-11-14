@@ -13,6 +13,9 @@
 		1830AD651DD046A2003CEB83 /* PicCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1830AD641DD046A2003CEB83 /* PicCollectionView.swift */; };
 		1830AD6C1DD065C2003CEB83 /* PicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1830AD6A1DD065C2003CEB83 /* PicCollectionViewCell.swift */; };
 		1830AD6D1DD065C2003CEB83 /* PicCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1830AD6B1DD065C2003CEB83 /* PicCollectionViewCell.xib */; };
+		1835734E1DD96CC600AD4F08 /* PicPickerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1835734D1DD96CC600AD4F08 /* PicPickerCollectionView.swift */; };
+		183573511DD98F6900AD4F08 /* PicPickerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1835734F1DD98F6900AD4F08 /* PicPickerViewCell.swift */; };
+		183573521DD98F6900AD4F08 /* PicPickerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183573501DD98F6900AD4F08 /* PicPickerViewCell.xib */; };
 		184DBF211DD41FAB006BCC13 /* ComposeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184DBF201DD41FAB006BCC13 /* ComposeTextView.swift */; };
 		1852E5E21DCC258A00E17205 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1852E5E01DCC258A00E17205 /* WelcomeViewController.swift */; };
 		1852E5E31DCC258A00E17205 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1852E5E11DCC258A00E17205 /* WelcomeViewController.xib */; };
@@ -57,6 +60,9 @@
 		1830AD641DD046A2003CEB83 /* PicCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicCollectionView.swift; sourceTree = "<group>"; };
 		1830AD6A1DD065C2003CEB83 /* PicCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicCollectionViewCell.swift; sourceTree = "<group>"; };
 		1830AD6B1DD065C2003CEB83 /* PicCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PicCollectionViewCell.xib; sourceTree = "<group>"; };
+		1835734D1DD96CC600AD4F08 /* PicPickerCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicPickerCollectionView.swift; sourceTree = "<group>"; };
+		1835734F1DD98F6900AD4F08 /* PicPickerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicPickerViewCell.swift; sourceTree = "<group>"; };
+		183573501DD98F6900AD4F08 /* PicPickerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PicPickerViewCell.xib; sourceTree = "<group>"; };
 		184DBF201DD41FAB006BCC13 /* ComposeTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTextView.swift; sourceTree = "<group>"; };
 		1852E5DE1DCC1D3500E17205 /* OCContainerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCContainerHeader.h; sourceTree = "<group>"; };
 		1852E5E01DCC258A00E17205 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +151,9 @@
 			children = (
 				184DBF201DD41FAB006BCC13 /* ComposeTextView.swift */,
 				18B5DE811DD5BE1C005F3ACB /* ComposeTitleView.swift */,
+				1835734D1DD96CC600AD4F08 /* PicPickerCollectionView.swift */,
+				1835734F1DD98F6900AD4F08 /* PicPickerViewCell.swift */,
+				183573501DD98F6900AD4F08 /* PicPickerViewCell.xib */,
 			);
 			path = ComposeView;
 			sourceTree = "<group>";
@@ -460,6 +469,7 @@
 				1852E5E31DCC258A00E17205 /* WelcomeViewController.xib in Resources */,
 				185379B81DC6EFB400236B7A /* OAuthViewController.xib in Resources */,
 				185379C11DC6EFB400236B7A /* VisitorView.xib in Resources */,
+				183573521DD98F6900AD4F08 /* PicPickerViewCell.xib in Resources */,
 				185379791DC6EF9800236B7A /* Assets.xcassets in Resources */,
 				1852E5F71DCC72B300E17205 /* HomeTableViewCell.xib in Resources */,
 				185379B31DC6EFB400236B7A /* PopoverViewController.xib in Resources */,
@@ -547,6 +557,8 @@
 				1830AD6C1DD065C2003CEB83 /* PicCollectionViewCell.swift in Sources */,
 				185379BE1DC6EFB400236B7A /* DLog.swift in Sources */,
 				185379B61DC6EFB400236B7A /* MainViewController.swift in Sources */,
+				183573511DD98F6900AD4F08 /* PicPickerViewCell.swift in Sources */,
+				1835734E1DD96CC600AD4F08 /* PicPickerCollectionView.swift in Sources */,
 				185379B21DC6EFB400236B7A /* PopoverViewController.swift in Sources */,
 				185379C01DC6EFB400236B7A /* VisitorView.swift in Sources */,
 				185379BD1DC6EFB400236B7A /* Common.swift in Sources */,
