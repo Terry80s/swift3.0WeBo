@@ -21,6 +21,7 @@ class PicCollectionView: UICollectionView {
 
     //MARK:- 系统的回调函数
     override func awakeFromNib() {
+        super.awakeFromNib()
         self.dataSource = self
         self.delegate = self
        

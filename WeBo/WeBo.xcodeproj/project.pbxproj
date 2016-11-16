@@ -13,7 +13,6 @@
 		1830AD651DD046A2003CEB83 /* PicCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1830AD641DD046A2003CEB83 /* PicCollectionView.swift */; };
 		1830AD6C1DD065C2003CEB83 /* PicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1830AD6A1DD065C2003CEB83 /* PicCollectionViewCell.swift */; };
 		1830AD6D1DD065C2003CEB83 /* PicCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1830AD6B1DD065C2003CEB83 /* PicCollectionViewCell.xib */; };
-		1835734E1DD96CC600AD4F08 /* PicPickerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1835734D1DD96CC600AD4F08 /* PicPickerCollectionView.swift */; };
 		183573511DD98F6900AD4F08 /* PicPickerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1835734F1DD98F6900AD4F08 /* PicPickerViewCell.swift */; };
 		183573521DD98F6900AD4F08 /* PicPickerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183573501DD98F6900AD4F08 /* PicPickerViewCell.xib */; };
 		184DBF211DD41FAB006BCC13 /* ComposeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184DBF201DD41FAB006BCC13 /* ComposeTextView.swift */; };
@@ -47,7 +46,6 @@
 		185379C01DC6EFB400236B7A /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185379AA1DC6EFB400236B7A /* VisitorView.swift */; };
 		185379C11DC6EFB400236B7A /* VisitorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185379AB1DC6EFB400236B7A /* VisitorView.xib */; };
 		18744D051DD2F581005621F9 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18744D031DD2F581005621F9 /* ComposeViewController.swift */; };
-		18744D061DD2F581005621F9 /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18744D041DD2F581005621F9 /* ComposeViewController.xib */; };
 		18B5DE821DD5BE1C005F3ACB /* ComposeTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B5DE811DD5BE1C005F3ACB /* ComposeTitleView.swift */; };
 		8EC0D7017CF83483CCA9CF94 /* Pods_WeBo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0EA88CF34FBEB24D542BE5E /* Pods_WeBo.framework */; };
 /* End PBXBuildFile section */
@@ -60,7 +58,6 @@
 		1830AD641DD046A2003CEB83 /* PicCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicCollectionView.swift; sourceTree = "<group>"; };
 		1830AD6A1DD065C2003CEB83 /* PicCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicCollectionViewCell.swift; sourceTree = "<group>"; };
 		1830AD6B1DD065C2003CEB83 /* PicCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PicCollectionViewCell.xib; sourceTree = "<group>"; };
-		1835734D1DD96CC600AD4F08 /* PicPickerCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicPickerCollectionView.swift; sourceTree = "<group>"; };
 		1835734F1DD98F6900AD4F08 /* PicPickerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicPickerViewCell.swift; sourceTree = "<group>"; };
 		183573501DD98F6900AD4F08 /* PicPickerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PicPickerViewCell.xib; sourceTree = "<group>"; };
 		184DBF201DD41FAB006BCC13 /* ComposeTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTextView.swift; sourceTree = "<group>"; };
@@ -97,7 +94,6 @@
 		185379AA1DC6EFB400236B7A /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		185379AB1DC6EFB400236B7A /* VisitorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitorView.xib; sourceTree = "<group>"; };
 		18744D031DD2F581005621F9 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
-		18744D041DD2F581005621F9 /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
 		18B5DE811DD5BE1C005F3ACB /* ComposeTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTitleView.swift; sourceTree = "<group>"; };
 		E8355869D4DC831645071552 /* Pods-WeBo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeBo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeBo/Pods-WeBo.release.xcconfig"; sourceTree = "<group>"; };
 		F0EA88CF34FBEB24D542BE5E /* Pods_WeBo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeBo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,7 +147,6 @@
 			children = (
 				184DBF201DD41FAB006BCC13 /* ComposeTextView.swift */,
 				18B5DE811DD5BE1C005F3ACB /* ComposeTitleView.swift */,
-				1835734D1DD96CC600AD4F08 /* PicPickerCollectionView.swift */,
 				1835734F1DD98F6900AD4F08 /* PicPickerViewCell.swift */,
 				183573501DD98F6900AD4F08 /* PicPickerViewCell.xib */,
 			);
@@ -379,7 +374,6 @@
 			isa = PBXGroup;
 			children = (
 				18744D031DD2F581005621F9 /* ComposeViewController.swift */,
-				18744D041DD2F581005621F9 /* ComposeViewController.xib */,
 			);
 			path = "Compose(发布)";
 			sourceTree = "<group>";
@@ -473,7 +467,6 @@
 				185379791DC6EF9800236B7A /* Assets.xcassets in Resources */,
 				1852E5F71DCC72B300E17205 /* HomeTableViewCell.xib in Resources */,
 				185379B31DC6EFB400236B7A /* PopoverViewController.xib in Resources */,
-				18744D061DD2F581005621F9 /* ComposeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,7 +551,6 @@
 				185379BE1DC6EFB400236B7A /* DLog.swift in Sources */,
 				185379B61DC6EFB400236B7A /* MainViewController.swift in Sources */,
 				183573511DD98F6900AD4F08 /* PicPickerViewCell.swift in Sources */,
-				1835734E1DD96CC600AD4F08 /* PicPickerCollectionView.swift in Sources */,
 				185379B21DC6EFB400236B7A /* PopoverViewController.swift in Sources */,
 				185379C01DC6EFB400236B7A /* VisitorView.swift in Sources */,
 				185379BD1DC6EFB400236B7A /* Common.swift in Sources */,

@@ -7,31 +7,36 @@
 //
 
 import UIKit
-
+private let picPickerCell = "picPickerCell"
+private let edgeMargin: CGFloat = 15
 class ComposeViewController: UIViewController {
 
     //MARK:- 懒加载属性
     fileprivate lazy var textView: ComposeTextView = ComposeTextView()
     fileprivate lazy var titleView: ComposeTitleView = ComposeTitleView()
     fileprivate lazy var toolBarBottom: UIToolbar = UIToolbar()
-    fileprivate lazy var picCollectionView: PicPickerCollectionView = PicPickerCollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+    
+    fileprivate lazy var images: [UIImage] = [UIImage]()
+    //MARK:- 定义全局函数
+    
+    var PicPickerCollectionView: UICollectionView?
     
     //MARK:- 系统回掉函数
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //设置导航条
         setupNavigationBar()
-        
+        //添加 UICollextionView
         setupPicPickerCollectionView()
-
-        setupToolsBarBottom()
         
+        //设置 toolBar工具条
+        setupToolsBarBottom()
         
         // 监听键盘通知
         NotificationCenter.default.addObserver(self, selector: #selector(ComposeViewController.keyboardWillChangeFrame(note:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         
         // 监听 collectionView 的点击
-        
         NotificationCenter.default.addObserver(self, selector: #selector(ComposeViewController.addPhotoClick), name: NSNotification.Name(rawValue: PicPickerAddPhotoNote), object: nil)
     }
 
@@ -47,7 +52,7 @@ class ComposeViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
 }
@@ -80,7 +85,7 @@ extension ComposeViewController {
         textView.alwaysBounceVertical = true
     }
     
-    func setupToolsBarBottom() {
+    fileprivate func setupToolsBarBottom() {
         view .addSubview(toolBarBottom)
         toolBarBottom.backgroundColor = UIColor.darkGray
         // 设置控件的 frame
@@ -115,16 +120,51 @@ extension ComposeViewController {
         tempItem.removeLast()
         toolBarBottom.items = tempItem
     }
-    
-    // 设置 UICollectionView
-    func setupPicPickerCollectionView() {
-        view .addSubview(picCollectionView)
-        picCollectionView.snp.makeConstraints { (make) in
+   
+}
+
+//MARK:- 设置picPickCollectionView
+extension ComposeViewController {
+
+    fileprivate func setupPicPickerCollectionView() {
+        
+        let layout = UICollectionViewFlowLayout()
+        PicPickerCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        let itemWH = (UIScreen.main.bounds.width - 4 * edgeMargin) / 3
+        
+        layout.itemSize = CGSize(width: itemWH, height: itemWH)
+        layout.minimumLineSpacing = edgeMargin
+        layout.minimumInteritemSpacing = edgeMargin
+        layout.scrollDirection = .vertical
+        //设置 collectionView 的属性
+        PicPickerCollectionView?.register(UINib(nibName: "PicPickerViewCell", bundle: nil), forCellWithReuseIdentifier: picPickerCell)
+        PicPickerCollectionView?.dataSource = self
+        
+        PicPickerCollectionView?.contentInset = UIEdgeInsetsMake(edgeMargin, edgeMargin, 0, edgeMargin)
+
+        self.view.addSubview(PicPickerCollectionView!)
+        PicPickerCollectionView!.snp.updateConstraints({ (make) in
             make.left.equalTo(0)
             make.right.equalTo(0)
             make.bottom.equalTo(0)
             make.height.equalTo(0)
-        }
+        })
+    }
+}
+
+//MARK:- collectionView的代理和数据源方法
+extension ComposeViewController: UICollectionViewDataSource {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return images.count + 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: picPickerCell, for: indexPath) as! PicPickerViewCell
+        cell.backgroundColor = UIColor.red
+        cell.delegate = self
+        cell.image = indexPath.item <= images.count - 1 ? images[indexPath.item] : nil
+        return cell
     }
 }
 
@@ -143,7 +183,7 @@ extension ComposeViewController {
     //监听键盘的事件
     func keyboardWillChangeFrame(note: Notification) {
         
-        print(note.userInfo ?? "")
+//        print(note.userInfo ?? "")
         // 1.获取动画执行的时间
         let duration = note.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! TimeInterval
         
@@ -153,7 +193,7 @@ extension ComposeViewController {
         
         //计算工具栏距离底部的间距
         let margin = UIScreen.main.bounds.height - y
-        print(margin)
+//        print(margin)
         // 更新约束,执行动画
         toolBarBottom.snp.updateConstraints { (make) in
             make.left.equalTo(0)
@@ -173,12 +213,13 @@ extension ComposeViewController {
         case 0:
             textView.resignFirstResponder()
             //更新 picCollectionView 的约束 执行动画
-            picCollectionView.snp.updateConstraints({ (make) in
+            PicPickerCollectionView!.snp.updateConstraints({ (make) in
                 make.left.equalTo(0)
                 make.right.equalTo(0)
                 make.bottom.equalTo(0)
                 make.height.equalTo(UIScreen.main.bounds.height * 0.65)
             })
+            
             UIView.animate(withDuration: 0.5, animations: {
                 self.view.layoutIfNeeded()
             })
@@ -188,22 +229,8 @@ extension ComposeViewController {
     }
 }
 
-//MARK: - textView代理方法
-extension ComposeViewController: UITextViewDelegate {
-
-    func textViewDidChange(_ textView: UITextView) {
-        //hasText 系统提供的方法判断是否有没有内容
-        self.textView.preloadLab.isHidden = textView.hasText
-        navigationItem.rightBarButtonItem?.isEnabled = textView.hasText
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        textView.resignFirstResponder()
-    }
-}
-
 //MARK:- 获取选择照片的事件监听
-extension ComposeViewController {
+extension ComposeViewController:PicPickerViewCellDelegate {
     
     @objc fileprivate func addPhotoClick() {
         
@@ -222,7 +249,33 @@ extension ComposeViewController {
         
         // 弹出选着照片的控制器
         present(imgPicker, animated: true, completion: nil)
+    }
+    
+    func didpickerDeleteBtnClick(sender: UIButton, picImage: UIImage) {
         
+        //获取 image 对象所在下标值
+        guard let index = images.index(of: picImage) else {
+            return
+        }
+        //将图片从数组中删除
+        images.remove(at: index)
+
+        //刷新 collextionView
+        PicPickerCollectionView?.reloadData()
+    }
+}
+
+//MARK: - textView代理方法
+extension ComposeViewController: UITextViewDelegate {
+
+    func textViewDidChange(_ textView: UITextView) {
+        //hasText 系统提供的方法判断是否有没有内容
+        self.textView.preloadLab.isHidden = textView.hasText
+        navigationItem.rightBarButtonItem?.isEnabled = textView.hasText
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        textView.resignFirstResponder()
     }
 }
 
@@ -234,6 +287,11 @@ extension ComposeViewController: UIImagePickerControllerDelegate,UINavigationCon
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         // 2.展示照片
+        images.append(image)
         
+        PicPickerCollectionView?.reloadData()
+        
+        picker.dismiss(animated: true, completion: nil)
     }
 }
+
