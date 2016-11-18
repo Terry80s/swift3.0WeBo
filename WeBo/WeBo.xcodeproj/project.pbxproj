@@ -46,6 +46,11 @@
 		185379C01DC6EFB400236B7A /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185379AA1DC6EFB400236B7A /* VisitorView.swift */; };
 		185379C11DC6EFB400236B7A /* VisitorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185379AB1DC6EFB400236B7A /* VisitorView.xib */; };
 		18744D051DD2F581005621F9 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18744D031DD2F581005621F9 /* ComposeViewController.swift */; };
+		18ADDB421DDF3B70003FB54D /* Emoticon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ADDB3F1DDF3B70003FB54D /* Emoticon.swift */; };
+		18ADDB431DDF3B70003FB54D /* EmoticonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ADDB401DDF3B70003FB54D /* EmoticonManager.swift */; };
+		18ADDB441DDF3B70003FB54D /* EmoticonPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ADDB411DDF3B70003FB54D /* EmoticonPackage.swift */; };
+		18ADDB4B1DDF3BAC003FB54D /* EmoticonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ADDB491DDF3BAC003FB54D /* EmoticonController.swift */; };
+		18ADDB4C1DDF3BAC003FB54D /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18ADDB4A1DDF3BAC003FB54D /* Emoticons.bundle */; };
 		18B5DE821DD5BE1C005F3ACB /* ComposeTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B5DE811DD5BE1C005F3ACB /* ComposeTitleView.swift */; };
 		8EC0D7017CF83483CCA9CF94 /* Pods_WeBo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0EA88CF34FBEB24D542BE5E /* Pods_WeBo.framework */; };
 /* End PBXBuildFile section */
@@ -94,6 +99,11 @@
 		185379AA1DC6EFB400236B7A /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		185379AB1DC6EFB400236B7A /* VisitorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitorView.xib; sourceTree = "<group>"; };
 		18744D031DD2F581005621F9 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		18ADDB3F1DDF3B70003FB54D /* Emoticon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emoticon.swift; sourceTree = "<group>"; };
+		18ADDB401DDF3B70003FB54D /* EmoticonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonManager.swift; sourceTree = "<group>"; };
+		18ADDB411DDF3B70003FB54D /* EmoticonPackage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonPackage.swift; sourceTree = "<group>"; };
+		18ADDB491DDF3BAC003FB54D /* EmoticonController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonController.swift; sourceTree = "<group>"; };
+		18ADDB4A1DDF3BAC003FB54D /* Emoticons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticons.bundle; sourceTree = "<group>"; };
 		18B5DE811DD5BE1C005F3ACB /* ComposeTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTitleView.swift; sourceTree = "<group>"; };
 		E8355869D4DC831645071552 /* Pods-WeBo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeBo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeBo/Pods-WeBo.release.xcconfig"; sourceTree = "<group>"; };
 		F0EA88CF34FBEB24D542BE5E /* Pods_WeBo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeBo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -373,9 +383,22 @@
 		18744D021DD2F55F005621F9 /* Compose(发布) */ = {
 			isa = PBXGroup;
 			children = (
+				18ADDB4A1DDF3BAC003FB54D /* Emoticons.bundle */,
+				18ADDB3E1DDF3B70003FB54D /* Model */,
+				18ADDB491DDF3BAC003FB54D /* EmoticonController.swift */,
 				18744D031DD2F581005621F9 /* ComposeViewController.swift */,
 			);
 			path = "Compose(发布)";
+			sourceTree = "<group>";
+		};
+		18ADDB3E1DDF3B70003FB54D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18ADDB3F1DDF3B70003FB54D /* Emoticon.swift */,
+				18ADDB401DDF3B70003FB54D /* EmoticonManager.swift */,
+				18ADDB411DDF3B70003FB54D /* EmoticonPackage.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		7CA4C0469B4DDBDEC283309E /* Pods */ = {
@@ -460,6 +483,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1830AD6D1DD065C2003CEB83 /* PicCollectionViewCell.xib in Resources */,
+				18ADDB4C1DDF3BAC003FB54D /* Emoticons.bundle in Resources */,
 				1852E5E31DCC258A00E17205 /* WelcomeViewController.xib in Resources */,
 				185379B81DC6EFB400236B7A /* OAuthViewController.xib in Resources */,
 				185379C11DC6EFB400236B7A /* VisitorView.xib in Resources */,
@@ -527,13 +551,16 @@
 			files = (
 				18744D051DD2F581005621F9 /* ComposeViewController.swift in Sources */,
 				1852E5EC1DCC6D1B00E17205 /* NSDate-Extension.swift in Sources */,
+				18ADDB441DDF3B70003FB54D /* EmoticonPackage.swift in Sources */,
 				1830AD651DD046A2003CEB83 /* PicCollectionView.swift in Sources */,
 				185379B11DC6EFB400236B7A /* PopoverAnimator.swift in Sources */,
+				18ADDB4B1DDF3BAC003FB54D /* EmoticonController.swift in Sources */,
 				1852E5F61DCC72B300E17205 /* HomeTableViewCell.swift in Sources */,
 				185379BC1DC6EFB400236B7A /* UIButton-Extension.swift in Sources */,
 				185379B41DC6EFB400236B7A /* YJPresentationController.swift in Sources */,
 				185379AF1DC6EFB400236B7A /* DiscoverViewController.swift in Sources */,
 				181F38081DCB37B600A82E5C /* UserAccount.swift in Sources */,
+				18ADDB431DDF3B70003FB54D /* EmoticonManager.swift in Sources */,
 				1852E5F91DCC7F0000E17205 /* StatusViewModel.swift in Sources */,
 				184DBF211DD41FAB006BCC13 /* ComposeTextView.swift in Sources */,
 				185379BB1DC6EFB400236B7A /* UIBarItem-Extension.swift in Sources */,
@@ -553,6 +580,7 @@
 				183573511DD98F6900AD4F08 /* PicPickerViewCell.swift in Sources */,
 				185379B21DC6EFB400236B7A /* PopoverViewController.swift in Sources */,
 				185379C01DC6EFB400236B7A /* VisitorView.swift in Sources */,
+				18ADDB421DDF3B70003FB54D /* Emoticon.swift in Sources */,
 				185379BD1DC6EFB400236B7A /* Common.swift in Sources */,
 				1852E5E61DCC505A00E17205 /* StatusModel.swift in Sources */,
 				18B5DE821DD5BE1C005F3ACB /* ComposeTitleView.swift in Sources */,
