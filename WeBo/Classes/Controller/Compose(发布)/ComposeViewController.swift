@@ -15,7 +15,7 @@ class ComposeViewController: UIViewController {
     fileprivate lazy var textView: ComposeTextView = ComposeTextView()
     fileprivate lazy var titleView: ComposeTitleView = ComposeTitleView()
     fileprivate lazy var toolBarBottom: UIToolbar = UIToolbar()
-    
+    fileprivate lazy var emoticonVc : EmoticonController = EmoticonController()
     fileprivate lazy var images: [UIImage] = [UIImage]()
     //MARK:- 定义全局函数
     
@@ -223,6 +223,15 @@ extension ComposeViewController {
             UIView.animate(withDuration: 0.5, animations: {
                 self.view.layoutIfNeeded()
             })
+        case 3:
+            textView.inputView = emoticonVc.view
+            
+            let manager = EmoticonManager()
+            for package in manager.packages {
+                for emoticon in package.emoticons {
+                    print(emoticon)
+                }
+            }
         default:
          return
         }
