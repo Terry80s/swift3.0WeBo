@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 private let picPickerCell = "picPickerCell"
 private let edgeMargin: CGFloat = 15
 class ComposeViewController: UIViewController {
@@ -182,7 +183,26 @@ extension ComposeViewController {
     }
     
     @objc fileprivate func sendItemBtnClick() {
-        print(textView.getEmoticonString())
+        // 0.键盘退出
+        textView.resignFirstResponder()
+        // 1.获取发送微博的微博正文
+        let statusText = textView.getEmoticonString()
+        // 2.定义回调的闭包
+        let finishedCallback = { (isSuccess : Bool) -> () in
+            if !isSuccess {
+                SVProgressHUD.showError(withStatus: "发送微博失败")
+                return
+            }
+            SVProgressHUD.showSuccess(withStatus: "发送微博成功")
+            self.dismiss(animated: true, completion: nil)
+        }
+        // 3.获取用户选中的图片
+        if let image = images.first {
+            NetworkTools.shareInstance.sendStatus(statusText: statusText, image: image, isSuccess: finishedCallback)
+        } else {
+            NetworkTools.shareInstance.sendStatus(statusText: statusText, isSuccess: finishedCallback)
+        }
+
 
     }
     

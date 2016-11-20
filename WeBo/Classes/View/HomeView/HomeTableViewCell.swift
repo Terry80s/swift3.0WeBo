@@ -21,9 +21,9 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var screenNameLable: UILabel!
     @IBOutlet weak var timeImgLable: UILabel!
     @IBOutlet weak var sourceLable: UILabel!
-    @IBOutlet weak var contentLable: UILabel!
+    @IBOutlet weak var contentLable: HYLabel!
     @IBOutlet weak var picView: PicCollectionView!
-    @IBOutlet weak var retweetedContentLabel: UILabel!
+    @IBOutlet weak var retweetedContentLabel: HYLabel!
     @IBOutlet weak var retweetedBgView: UIView!
     
     //MARK: - 约束属性
@@ -59,7 +59,7 @@ class HomeTableViewCell: UITableViewCell {
             }
            
             // 8.设置微博正文
-            contentLable.text = viewModel.status?.text
+            contentLable.attributedText = FindEmoticon.shareIntance.findAttrString((viewModel.status?.text)!, font: contentLable.font)
             
             // 9设置会员昵称的颜色
             screenNameLable.textColor = viewModel.vipImage == nil ? UIColor.black : UIColor.orange
@@ -76,6 +76,8 @@ class HomeTableViewCell: UITableViewCell {
                 if let screenName = viewModel.status?.retweeted_status?.user?.screen_name, let retweetedText = viewModel.status?.retweeted_status?.text {
                     
                     retweetedContentLabel.text = "@" + "\(screenName) :" + retweetedText
+                    retweetedContentLabel.attributedText = FindEmoticon.shareIntance.findAttrString(retweetedText, font: retweetedContentLabel.font)
+
                     // 设置转发正文距离顶部的约束
                     retweetedContentLabelTopCons.constant = 15
                 }
@@ -98,6 +100,29 @@ class HomeTableViewCell: UITableViewCell {
     
         contentWitdhConns.constant = UIScreen.main.bounds.width - 2 * edgeMargin
        
+        // 设置HYLabel的内容
+        contentLable.matchTextColor = UIColor.purple
+        retweetedContentLabel.matchTextColor = UIColor.purple
+        
+        // 监听HYlabel内容的点击
+        // 监听@谁谁谁的点击
+        contentLable.userTapHandler = { (label, user, range) in
+            print(user)
+            print(range)
+        }
+        
+        // 监听链接的点击
+        contentLable.linkTapHandler = { (label, link, range) in
+            print(link)
+            print(range)
+        }
+        
+        // 监听话题的点击
+        contentLable.topicTapHandler = { (label, topic, range) in
+            print(topic)
+            print(range)
+        }
+
     }
 }
 

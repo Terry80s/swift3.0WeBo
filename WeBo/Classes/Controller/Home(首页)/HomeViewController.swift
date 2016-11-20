@@ -51,6 +51,9 @@ class HomeViewController: BaseViewController {
         
         //设置提示Lable
         setupTipLabel()
+        
+        // 6.监听通知
+        setupNatifications()
     }
 }
 
@@ -101,6 +104,10 @@ extension HomeViewController {
         tipLab.textAlignment = .center
         tipLab.isHidden = true
     }
+    
+    fileprivate func setupNatifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.showPhotoBrowser(_:)), name: NSNotification.Name(rawValue: ShowPhotoBrowserNote), object: nil)
+    }
 }
 
 //MARK:- 事件的点击
@@ -130,6 +137,20 @@ extension HomeViewController {
         //4.弹出视图
         present(popoverVC, animated: true, completion: nil)
     }
+    
+    @objc fileprivate func showPhotoBrowser(_ note : Notification) {
+        // 0.取出数据
+        let indexPath = note.userInfo![ShowPhotoBrowserIndexKey] as! IndexPath
+        let picURLs = note.userInfo![ShowPhotoBrowserUrlsKey] as! [URL]
+        
+        // 1.创建控制器
+        let photoBrowserVc = PhotoBrowserController(indexPath: indexPath, picURLs: picURLs)
+
+        print(picURLs)
+        // 2.以modal的形式弹出控制器
+        present(photoBrowserVc, animated: true, completion: nil)
+    }
+
 }
 
 //MARK:- 请求网络数据

@@ -48,6 +48,12 @@ extension PicCollectionView: UICollectionViewDataSource, UICollectionViewDelegat
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        
         DLog("Item 被点击了\(indexPath.item)")
+        
+        // 1.获取通知需要传递的参数
+        let userInfo = [ShowPhotoBrowserIndexKey : indexPath, ShowPhotoBrowserUrlsKey : picURL] as [String : Any]
+        
+        // 2.发出通知
+        NotificationCenter.default.post(name: Notification.Name(rawValue: ShowPhotoBrowserNote), object: nil, userInfo: userInfo)
     }
     
 }
