@@ -1,11 +1,10 @@
 //
 //  EmoticonManager.swift
-//  09-表情键盘
+//  WeBo
 //
-//  Created by xiaomage on 16/4/12.
-//  Copyright © 2016年 小码哥. All rights reserved.
+//  Created by Apple on 16/11/9.
+//  Copyright © 2016年 叶炯. All rights reserved.
 //
-
 import UIKit
 
 class EmoticonManager {

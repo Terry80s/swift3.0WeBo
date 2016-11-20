@@ -45,7 +45,8 @@ extension ComposeTextView {
         
         // 3.设置属性
         preloadLab.textColor = UIColor.lightGray
-        preloadLab.font = font
+        self.font = UIFont.systemFont(ofSize: 16)
+        preloadLab.font = self.font
         
         // 4.设置文字
         preloadLab.text = "分享新鲜事..."

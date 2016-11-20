@@ -15,8 +15,13 @@ class ComposeViewController: UIViewController {
     fileprivate lazy var textView: ComposeTextView = ComposeTextView()
     fileprivate lazy var titleView: ComposeTitleView = ComposeTitleView()
     fileprivate lazy var toolBarBottom: UIToolbar = UIToolbar()
-    fileprivate lazy var emoticonVc : EmoticonController = EmoticonController()
     fileprivate lazy var images: [UIImage] = [UIImage]()
+
+    fileprivate lazy var emoticonVc : EmoticonController = EmoticonController {[weak self] (emoticon) -> () in
+        self?.textView.insertEmoticon(emoticon)
+        self?.textViewDidChange(self!.textView)
+
+    }
     //MARK:- 定义全局函数
     
     var PicPickerCollectionView: UICollectionView?
@@ -177,7 +182,8 @@ extension ComposeViewController {
     }
     
     @objc fileprivate func sendItemBtnClick() {
-    
+        print(textView.getEmoticonString())
+
     }
     
     //监听键盘的事件
@@ -224,14 +230,15 @@ extension ComposeViewController {
                 self.view.layoutIfNeeded()
             })
         case 3:
-            textView.inputView = emoticonVc.view
+            // 1.退出键盘
+            textView.resignFirstResponder()
             
-            let manager = EmoticonManager()
-            for package in manager.packages {
-                for emoticon in package.emoticons {
-                    print(emoticon)
-                }
-            }
+            // 2.切换键盘
+            textView.inputView = textView.inputView != nil ? nil : emoticonVc.view
+            
+            // 3.弹出键盘
+            textView.becomeFirstResponder()
+          
         default:
          return
         }

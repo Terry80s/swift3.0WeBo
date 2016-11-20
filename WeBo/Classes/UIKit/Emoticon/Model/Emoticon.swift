@@ -1,12 +1,11 @@
 
 //
 //  Emoticon.swift
-//  09-表情键盘
+//  WeBo
 //
-//  Created by xiaomage on 16/4/12.
-//  Copyright © 2016年 小码哥. All rights reserved.
+//  Created by Apple on 16/11/9.
+//  Copyright © 2016年 叶炯. All rights reserved.
 //
-
 import UIKit
 
 class Emoticon: NSObject {
@@ -16,7 +15,6 @@ class Emoticon: NSObject {
             guard let code = code else {
                 return
             }
-            
             // 1.创建扫描器
             let scanner = Scanner(string: code)
             
@@ -45,12 +43,22 @@ class Emoticon: NSObject {
     // MARK:- 数据处理
     var pngPath : String?
     var emojiCode : String?
+    var isRemove: Bool = false
+    var isEmpty: Bool = false
+    
+    
     
     // MARK:- 自定义构造函数
     init(dict : [String : String]) {
         super.init()
         
         setValuesForKeys(dict)
+    }
+    init(isRemove: Bool) {
+        self.isRemove = isRemove
+    }
+    init(isEmpty: Bool) {
+        self.isEmpty = isEmpty
     }
     override func setValue(_ value: Any?, forUndefinedKey key: String) {
         
