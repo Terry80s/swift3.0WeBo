@@ -24,6 +24,7 @@ class HomeViewController: BaseViewController {
     fileprivate lazy var dataArr: [StatusViewModel] = [StatusViewModel]()
     
     fileprivate lazy var tipLab: UILabel = UILabel()
+    fileprivate lazy var photoBrowserAnimator : PhotoBrowserAnimator = PhotoBrowserAnimator()
     
     // MARK:- 系统回调函数
     override func viewDidLoad() {
@@ -142,12 +143,23 @@ extension HomeViewController {
         // 0.取出数据
         let indexPath = note.userInfo![ShowPhotoBrowserIndexKey] as! IndexPath
         let picURLs = note.userInfo![ShowPhotoBrowserUrlsKey] as! [URL]
-        
+        let object = note.object as! PicCollectionView
+
         // 1.创建控制器
         let photoBrowserVc = PhotoBrowserController(indexPath: indexPath, picURLs: picURLs)
 
-        print(picURLs)
-        // 2.以modal的形式弹出控制器
+        // 2.设置modal样式
+        photoBrowserVc.modalPresentationStyle = .custom
+
+        // 3.设置转场的代理
+        photoBrowserVc.transitioningDelegate = photoBrowserAnimator
+        
+        // 4.设置动画的代理
+        photoBrowserAnimator.presentedDelegate = object
+        photoBrowserAnimator.indexPath = indexPath
+        photoBrowserAnimator.dismissDelegate = photoBrowserVc
+        
+        // 5.以modal的形式弹出控制器
         present(photoBrowserVc, animated: true, completion: nil)
     }
 

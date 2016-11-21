@@ -37,7 +37,8 @@ class PhotoBrowserController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        view.bounds.size.width += 20
+        
+        view.frame.size.width += 20
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +47,7 @@ class PhotoBrowserController: UIViewController {
         setupUI()
         
         // 2.滚动到对应的图片
-        collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
+        collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .left)
     }
 }
 
@@ -60,8 +61,8 @@ extension PhotoBrowserController {
         view.addSubview(saveBtn)
         
         // 2.设置frame
-        collectionView.frame = view.bounds
-        collectionView.frame.size.width -= 20
+        collectionView.frame = view.frame
+        
         closeBtn.snp.makeConstraints { (make) -> Void in
             make.left.equalTo(20)
             make.bottom.equalTo(-20)
@@ -99,10 +100,10 @@ extension PhotoBrowserController {
             return
         }
         // 2.将image对象保存相册
-        UIImageWriteToSavedPhotosAlbum(image, self, Selector(("image:didFinishSavingWithError:contextInfo:")), nil)
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(PhotoBrowserController.image(_:didFinishSavingWithError:contextInfo:)), nil)
         
     }
-    @objc private func image(image : UIImage, didFinishSavingWithError error : NSError?, contextInfo : AnyObject) {
+    @objc fileprivate func image(_ image : UIImage, didFinishSavingWithError error : NSError?, contextInfo : AnyObject) {
         var showInfo = ""
         if error != nil {
             showInfo = "保存失败"
@@ -131,10 +132,44 @@ extension PhotoBrowserController : UICollectionViewDataSource {
         return cell
     }
     
-
 }
 
+//MARK: - PhotoBrowserViewCellDelegate
+extension PhotoBrowserController: PhotoBrowserViewCellDelegate{
+    func imageViewBtnClick() {
+        closeBtnClick()
+    }
+    
+}
 
+//MARK:- 遵守AnimatorDismissDelegate 
+extension PhotoBrowserController: AnimatorDismissDelegate {
+    
+    func indexPathForDimissView() -> IndexPath {
+        // 1.获取当前正在显示的indexPath
+        let cell = collectionView.visibleCells.first!
+        
+        return collectionView.indexPath(for: cell)!
+    }
+    
+    func imageViewForDimissView() -> UIImageView {
+        // 1.创建UIImageView对象
+        let imageView = UIImageView()
+        
+        // 2.设置imageView的frame
+        let cell = collectionView.visibleCells.first as! PhotoBrowserViewCell
+        imageView.frame = cell.imageView.frame
+        imageView.image = cell.imageView.image
+        
+        // 3.设置imageView的属性
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        
+        return imageView
+    }
+}
+
+//MARK:- 自定义布局
 class PhotoBrowserCollectionViewLayout : UICollectionViewFlowLayout {
     override func prepare() {
         super.prepare()
@@ -152,13 +187,6 @@ class PhotoBrowserCollectionViewLayout : UICollectionViewFlowLayout {
     }
 }
 
-//MARK: - PhotoBrowserViewCellDelegate
-extension PhotoBrowserController: PhotoBrowserViewCellDelegate{
-    func imageViewBtnClick() {
-        closeBtnClick()
-    }
-    
-}
 
 
 

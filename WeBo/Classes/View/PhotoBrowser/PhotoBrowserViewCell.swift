@@ -49,6 +49,7 @@ extension PhotoBrowserViewCell {
         
         // 2.设置子控件frame
         scrollView.frame = contentView.bounds
+        scrollView.frame.size.width -= 20
         progressView.bounds = CGRect(x: 0, y: 0, width: 50, height: 50)
         progressView.center = CGPoint(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height * 0.5)
         
@@ -58,8 +59,8 @@ extension PhotoBrowserViewCell {
         
         // 4.监听 imageView 的点击
         let tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PhotoBrowserViewCell.tapGestureRecognizerBtnClick))
-        
-        contentView.addGestureRecognizer(tapGestureRecognizer)
+        imageView.addGestureRecognizer(tapGestureRecognizer)
+        imageView.isUserInteractionEnabled = true
         
     }
 }

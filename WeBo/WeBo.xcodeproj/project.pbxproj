@@ -62,6 +62,7 @@
 		189CC2D21DE1A2DB004F0390 /* EmoticonPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189CC2C81DE1A2DB004F0390 /* EmoticonPackage.swift */; };
 		189CC2D31DE1A2DB004F0390 /* UITextView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189CC2C91DE1A2DB004F0390 /* UITextView-Extension.swift */; };
 		18B5DE821DD5BE1C005F3ACB /* ComposeTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B5DE811DD5BE1C005F3ACB /* ComposeTitleView.swift */; };
+		18D921231DE29094004D9511 /* PhotoBrowserAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D921221DE29094004D9511 /* PhotoBrowserAnimator.swift */; };
 		8EC0D7017CF83483CCA9CF94 /* Pods_WeBo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0EA88CF34FBEB24D542BE5E /* Pods_WeBo.framework */; };
 /* End PBXBuildFile section */
 
@@ -125,6 +126,7 @@
 		189CC2C81DE1A2DB004F0390 /* EmoticonPackage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonPackage.swift; sourceTree = "<group>"; };
 		189CC2C91DE1A2DB004F0390 /* UITextView-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView-Extension.swift"; sourceTree = "<group>"; };
 		18B5DE811DD5BE1C005F3ACB /* ComposeTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTitleView.swift; sourceTree = "<group>"; };
+		18D921221DE29094004D9511 /* PhotoBrowserAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserAnimator.swift; sourceTree = "<group>"; };
 		E8355869D4DC831645071552 /* Pods-WeBo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeBo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeBo/Pods-WeBo.release.xcconfig"; sourceTree = "<group>"; };
 		F0EA88CF34FBEB24D542BE5E /* Pods_WeBo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeBo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -425,6 +427,7 @@
 				186D3CB91DE1E07F006C53D4 /* ProgressView.swift */,
 				186D3CB51DE1D6DB006C53D4 /* PhotoBrowserController.swift */,
 				186D3CB71DE1D6FA006C53D4 /* PhotoBrowserViewCell.swift */,
+				18D921221DE29094004D9511 /* PhotoBrowserAnimator.swift */,
 			);
 			path = PhotoBrowser;
 			sourceTree = "<group>";
@@ -625,6 +628,7 @@
 				189CC2CC1DE1A2DB004F0390 /* EmoticonAttachment.swift in Sources */,
 				181F38081DCB37B600A82E5C /* UserAccount.swift in Sources */,
 				1852E5F91DCC7F0000E17205 /* StatusViewModel.swift in Sources */,
+				18D921231DE29094004D9511 /* PhotoBrowserAnimator.swift in Sources */,
 				184DBF211DD41FAB006BCC13 /* ComposeTextView.swift in Sources */,
 				185379BB1DC6EFB400236B7A /* UIBarItem-Extension.swift in Sources */,
 				181F38061DCB1A8100A82E5C /* NetworkTools.swift in Sources */,
