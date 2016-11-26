@@ -70,11 +70,6 @@ extension OAuthViewController {
     @objc fileprivate func fileItemClick() {
     
         DLog("填充账号")
-        // 1.书写 JS 代码:
-        let jsCode = "document.getElementById('userId').value='15515612997';document.getElementById('passwd').value='15515612997abc';"
-        
-        // 2.执行 js代码
-        webView.stringByEvaluatingJavaScript(from: jsCode)
 
     }
     
